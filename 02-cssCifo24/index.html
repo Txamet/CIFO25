@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css con Html</title>
+    <link rel="stylesheet" href="css/indexStyle.css" />
+    <style>
+      h3 {
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Aprendiendo CSS</h1>
+      <p>
+        Cascading Style Sheets.<br />
+        Hojas de Estilo en cascada
+      </p>
+    </header>
+    <nav>
+      <h3 id="indice">Índice de contenidos</h3>
+      <ul id="menu">
+        <li><a href="#basicos">Selectores básicos</a></li>
+        <li><a href="#avanzados">Selectores avanzados</a></li>
+        <li><a href="#jerarquia">Jerarquía en Css -Restricciones-</a></li>
+        <li><a href="sources/box-model.html">Modelo de caja</a></li>
+        <li><a href="#reseteo">Resetear navegadores</a></li>
+        <li><a href="#position">Posicionamiento</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h3 id="basicos">Selectores básicos</h3>
+        <article>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+            minus facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+        </article>
+        <article>
+          <p>
+            Lipsum, dolor sit amet consectetur adipisicing elit. Sequi minus
+            facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+          <p class="parrafo-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+            minus facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+        </article>
+        <article>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+            minus facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+          <p class="parrafo-2 strong">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+            minus facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+          <p class="parrafo-2 tipo strong">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+            minus facere dicta cupiditate numquam. Repellat facilis reiciendis
+            architecto rem atque, possimus deleniti amet. Repellat praesentium
+            iusto accusantium obcaecati at iure.
+          </p>
+          <small class="tipo">Con el mismo aspecto que los "parrafo-2"</small>
+        </article>
+        <address class="tipo strong">Avenido Carlomagno, 12</address>
+        <a href="#indice">Ir arriba</a>
+      </section>
+      <section>
+        <h3 id="avanzados">Selectores Avanzados</h3>
+        <article>
+          <h4>selectores de hijos</h4>
+          <p>hijos directos y descendientes</p>
+          <ul class="directos">
+            <li>
+              <strong>Primavera</strong>
+            </li>
+            <ul>
+              <li>opt1</li>
+              <ul>
+                <li>opt1.1</li>
+                <li>opt2.1</li>
+                <li><strong>opt3.1</strong></li>
+              </ul>
+              <li><strong>opt2</strong></li>
+              <li>opt3</li>
+            </ul>
+            <li><strong>Verano</strong></li>
+            <li><strong>Otoño</strong></li>
+            <li><strong>Invierno</strong></li>
+          </ul>
+        </article>
+        <article>
+          <h4>Selectores de hermanos</h4>
+          <p>Hermanos directos</p>
+          <ul>
+            <li class="hermano-adjacente"><strong>Primavera</strong></li>
+            <li class="hermano-general"><strong>Verano</strong></li>
+            <li><strong>Otoño</strong></li>
+            <li><strong>Invierno</strong></li>
+          </ul>
+        </article>
+        <article>
+          <h4>Selectores de atributos</h4>
+          <nav class="atributos">
+            <ul>
+              <li>
+                <a href="https://dominio.com" target="_blank">Productos</a>
+              </li>
+              <li><a class="opcion" href="https://dominio.com">Nosotros</a></li>
+              <li>
+                <a href="https://dominio.com" target="_blank"
+                  >Servicio técnico</a
+                >
+              </li>
+              <li><a href="https://dominio.com" target="new">Contacto</a></li>
+              <li>
+                <a class="opcion" href="http://dominio.com">Localización</a>
+              </li>
+              <li>
+                <a class="opcion" href="http://dominio.eu">Localización</a>
+              </li>
+            </ul>
+          </nav>
+        </article>
+        <a href="#indice">Ir arriba</a>
+      </section>
+      <hr />
+      <section>
+        <h3 class="color" id="jerarquia" style="color: #ff0000">
+          Jerarquia en Css. - Restricciones
+        </h3>
+        <article>
+          <p style="padding-left: 100px">
+            Los navegadores aplican estilos a los documentos Html por jerarquía
+            basada en:
+          </p>
+          <ol>
+            <li>La Cascada</li>
+            <li>La especificidad</li>
+            <li>La Herencia</li>
+          </ol>
+          <p>
+            La Cascada es el procedimiento con el que un navegador aplica los
+            estilos y el orden de importancia o restricción es el siguiente:
+          </p>
+          <ol>
+            <li>
+              Origen del código
+              <ul>
+                <li>Reglas del User Agent</li>
+                <li>Reglas del usuario</li>
+                <li>Reglas desarrollador</li>
+              </ul>
+            </li>
+            <li>La especificidad del selector</li>
+            <li>Orden de aparición</li>
+          </ol>
+          <p>
+            La especificidad es la fuerza restrictiva o peso de un selector.
+          </p>
+          <ul>
+            <li>Estilo en línea 1</li>
+            <li>Identificadores 0,1</li>
+            <li>Clases, atributos, pseudoclases 0,0,1</li>
+            <li>Etiquetas html 0,0,0,1</li>
+            <li>!important- Salta toda la jerarquía.</li>
+          </ul>
+          <p>
+            La herencia es la capacidad que tienen los elementos padre de hacer
+            heredar a sus hijos, sus propiedades. Valores inherit o heredados.
+          </p>
+        </article>
+        <a href="#indice">Ir arriba</a>
+      </section>
+      <hr />
+      <section>
+        <h3 id="reseteo">Resetear navegadores</h3>
+        <p>
+          Ante la diferente interpretación del aspecto de los elementos de html
+          que utiliza cada navegador, nace la necesidad de borrar o resetear
+          todas estas propiedades nativas de los navegadores para dejar el
+          control a los desarrolladores.<br />
+          Existen en el mercado diversos archivos css que funcionan como
+          reseteadores estandard, cómo normalize.css o reset.css.<br />Para más
+          información: Ver indexStyle.css.
+        </p>
+        <a href="#indice">Ir arriba</a>
+      </section>
+      <hr />
+      <section>
+        <h3 id="position">Posicionamiento</h3>
+        <p>Tipos de posicionamiento de los elementos Html:</p>
+        <ul>
+          <li>
+            <a href="sources/positions/fixed.html" class="desactivar"
+              >Static (estático)</a
+            >
+            <small
+              >Comportamiento nativo de posicionamiento de todos los elementos
+              Html</small
+            >
+          </li>
+          <li>
+            <a href="sources/positions/fixed.html">Fijo (Fixed)</a>
+          </li>
+          <li><a href="">Relative (relativo)</a></li>
+          <li>
+            <a href="sources/positions/absolute.html">Absolute (absoluto)</a>
+          </li>
+          <li><a href="">Sticky (adhesivo)</a></li>
+        </ul>
+      </section>
+      <a href="#indice">Ir arriba</a>
+    </main>
+  </body>
+</html>

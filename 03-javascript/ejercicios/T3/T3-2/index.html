@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T3-2 Funcions i Arrays de JavaScript</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+  </head>
+  <body>
+    <header class="container text-center mt-5">
+      <h1>T3-2 Funcions i Arrays de JavaScript</h1>
+    </header>
+    <main class="container">
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 1</h3>
+        <p>
+          Crea un html que ens permeti recollir un array amb els mesos de l'any
+          ja fet i ho mostrem:
+        </p>
+        <ol>
+          <li>En el seu ordre real</li>
+          <li>En ordre alfabètic</li>
+          <li>Separat amb guions</li>
+          <li>Ordre invers</li>
+          <li>Separat amb un altre caràcter que tu decideixis</li>
+        </ol>
+        <p>
+          <label for="">Introdueix el mes actual: </label>
+          <input type="text" id="input_exercise_one" />
+        </p>
+        <p class="pt-3 pb-3">
+          <strong>Resposta: </strong><span id="answer_exercise_one"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseOne()">
+          Executa
+        </button>
+        <button class="btn btn-warning" onclick="clean()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 2</h3>
+        <p>
+          En un html, demana a l'usuari que introdueixi en una àrea de text una
+          frase, mitjançant una funció obriràs una finestra controlada informant
+          de:
+        </p>
+        <ol>
+          <li>La primera paraula</li>
+          <li>L'última paraula</li>
+          <li>El nombre total de paraules</li>
+          <li>
+            Les ordeneu alfabèticament i les escriviu separades amb un guió
+          </li>
+        </ol>
+        <p>
+          <label for="">Escriu una frase: </label>
+          <input type="text" id="input_exercise_two" />
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseTwo()">
+          Executa
+        </button>
+        <button class="btn btn-warning" onclick="clean()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 4</h3>
+        <p>
+          Escriu un html que ens permeti mitjançant una funció mostrar les dades
+          d'un array associatiu d'una persona amb les dades següents:
+        </p>
+        <ul>
+          <li>Nom</li>
+          <li>Cognom</li>
+          <li>Edat</li>
+          <li>DNI</li>
+        </ul>
+        <p class="pt-3 pb-3">
+          <strong>Resposta: </strong><span id="answer_exercise_four"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseFour()">
+          Executa
+        </button>
+        <button class="btn btn-warning" onclick="clean()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 5</h3>
+        <p>
+          Escriu un programa que ens permeti introduir en inputs de text, Nom,
+          Cognoms, edat i DNI, validi els imputs i ho emmagatzemi en un array
+          amb aquests índexs de posició. els mostri en un div, i permeti afegir
+          tants persones com faci falta, eliminar l'últim, o borrar tots.
+        </p>
+        <p>
+          <label for="">Introdueix el nom: </label>
+          <input type="text" id="input_exercise_five_name" />
+        </p>
+        <p>
+          <label for="">Introdueix el cognom: </label>
+          <input type="text" id="input_exercise_five_surname" />
+        </p>
+        <p>
+          <label for="">Introdueix l'edat: </label>
+          <input type="text" id="input_exercise_five_age" />
+        </p>
+        <p>
+          <label for="">Introdueix el DNI: </label>
+          <input type="text" id="input_exercise_five_dni" />
+        </p>
+        <p class="pt-3 pb-3">
+          <strong>Resposta: </strong><span id="answer_exercise_five"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseFiveAdd()">
+          Afegir persona
+        </button>
+        <button class="btn btn-primary me-2" onclick="exerciseFiveShow()">
+          Veure tots
+        </button>
+        <button class="btn btn-primary me-2" onclick="exerciseFiveDeleteLast()">
+          Eliminar l'ùltim
+        </button>
+        <button class="btn btn-primary me-2" onclick="exerciseFiveDeleteAll()">
+          Esborrar tots
+        </button>
+        <button class="btn btn-warning" onclick="clean()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 6</h3>
+        <p>
+          Escriu un html que ens permeti veure des d'un botó, el menú setmanal
+          d'un restaurant, amb 5 primers, 5 segons i 5 postres. Formateu el
+          vostre aspecte amb estils en línia des de javascript.
+        </p>
+      </article>
+      <article class="container border border-black mt-5 mb-5 p-3">
+        <h3>Exercici 7</h3>
+        <p>
+          Escriu un html que ens permeti entrar tots els plats d'un menú
+          setmanal d'un restaurant, amb 5 primers, 5 segons i 5 postres.
+        </p>
+      </article>
+      <script src="./js/ejercicios_T3_2.js"></script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after,
+html {
+  padding: 0px;
+  margin: 0px;
+  width: 100%; /* 100vw */
+  height: 100%; /* 100vh */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centrado {
+  background-color: red;
+  width: 70%; /* 70vw */
+  height: 70%; /* 70vh */
+}

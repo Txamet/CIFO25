@@ -1,0 +1,79 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+*,
+*::before,
+*::after,
+html {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: burlywood;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  padding: 10px 10px;
+}
+
+h1 {
+  border: 1px solid black;
+  font-size: 2rem;
+  line-height: 4rem;
+  text-align: right;
+  text-transform: uppercase;
+  color: blue;
+  padding-right: 2rem;
+  clear: both;
+}
+
+h2 {
+  background-color: rgb(129, 75, 5);
+  color: white;
+  font-size: 1.48rem;
+  height: 3rem;
+  padding-left: 1.1rem;
+  padding-top: 1.1rem;
+  font-weight: bold;
+  clear: both;
+}
+
+p {
+  font-size: 16px;
+  text-align: justify;
+  margin: 1rem auto;
+}
+
+.izq {
+  /* max-width: 50%; */
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  padding-right: 1.1rem;
+  float: left;
+  margin: 0 20px 5px 0;
+}
+
+.der {
+  float: right;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  padding-left: 1.1rem;
+}
+
+.centrado {
+  float: center;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  text-align: center;
+}

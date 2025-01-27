@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables y estructuras de control</title>
+</head>
+<body>
+  <script>
+    var hola = "Hola mundo";
+    let hello = "Hello world"
+    console.log(hola);
+    console.log(hello);
+    console.log(window.hola);
+    console.log(window.hello); /* Aparece undefined en la consola ya que una variable let sólo pertenece al documento y no al objeto window */
+
+    function testVar() {
+      console.log(hola);
+      if (hola) {
+        hola = 800;
+        console.log(hola);
+      }
+    }
+    
+    testVar();
+    console.log(hola);
+
+    function testLet() {
+      console.log(hello);
+      if (hello) {
+        let hello = 1000;
+        console.log(hello);
+      }
+    }
+
+    testLet();
+    console.log(hello);
+  </script>
+  <script src="./js/app1.js"></script>
+  <script src="./js/app2.js"></script>
+</body>
+</html>

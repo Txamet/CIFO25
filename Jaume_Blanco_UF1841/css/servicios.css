@@ -1,0 +1,10 @@
+.video-servicios {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+video {
+  padding-top: 2rem;
+  width: 80%;
+}

@@ -1,0 +1,135 @@
+/* Modelo de Caja: Es la forma en que CSS ve a los elementos HTML. ¿Y cómo los ve? Como si fueran cajas con las siguientes propiedades:
+1. El contenido (content): El contenido (texto, mágenes, etc) del elemento HTML, tomando en cuenta sus dimensiones (width & heigth)
+2. El borde (border): Lo que delimita cada uno de los elementos HTML.
+3. El relleno (padding): son las distancias internas (La distancia del borde al contenido).
+4. El margen (margin): son las distancias externas (La distancia entre el elemento HTML y sus elementos hermanos o padres)
+
+Dentro del modelo de caja hay que considerar que una caja tendrá 4 lados:
+1. Arriba (top)
+2. Derecha (right)
+3. Abajo (bottom)
+4. Izquierda (left) */
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  /*   border-color: blueviolet;
+  border-width: thick;
+  border-style: dashed; */
+  /* border: thick dashed blueviolet; */
+  border: 20px solid red;
+  background-color: bisque;
+  /* padding: 20px; */
+  width: 100%;
+  box-sizing: border-box; /* Esto ajusta la caja al tamaño del border siempre y cuando no haya un margin */
+}
+
+.caja-uno,
+.caja-dos {
+  background-color: aqua;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  margin: 40 px 10px;
+  padding: 40px 10px;
+  margin: 0px 10px 30px 40px;
+  padding: 0px 10px 30px 40px; /* En caso de repetición sólo tiene en cuenta el que está más abajo */
+}
+
+/* 
+Propiedad Display:
+  inline
+  block
+  inline-block - Se comporta como un elemento de línea pero acepta modificar sus dimensiones (alto y ancho)
+  none - No muestra este bloque y queda oculto, "ni está ni se le espera"
+  table
+  list-item
+  flex
+  grid
+*/
+
+.caja-none,
+.caja-linea-bloque,
+.caja-hidden {
+  background-color: darkgreen;
+  color: white;
+  width: 600px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.caja-none {
+  display: none; /* Oculta este bloque y elimina el espacio que ocupa */
+}
+
+.caja-linea-bloque {
+  display: inline-block;
+}
+
+.caja-hidden {
+  visibility: hidden; /* Oculta este bloque pero el espacio se reserva, no elimina el espacio que ocupa */
+}
+
+.overflow {
+  background-color: darkturquoise;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  /* overflow: visible; */
+  /* overflow: hidden; */
+  /* overflow: scroll; */
+  overflow: auto;
+  /* overflow-y: scroll; */
+  /* overflow-x: scroll; */
+}
+
+.container-col-3 {
+  background-color: burlywood;
+  width: 800px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.container-col-3 > * {
+  background-color: aqua;
+  box-sizing: border-box;
+  width: 200px;
+  border: thin solid red;
+  padding: 5px;
+  margin: 10px;
+  float: left;
+}
+
+/* Floats */
+.container-floats {
+  background-color: cornflowerblue;
+}
+
+.float-right {
+  float: right;
+  background-color: aquamarine;
+}
+
+.float-left {
+  float: left;
+  background-color: aquamarine;
+}
+
+.clearfix {
+  clear: both; /* Los float anteriores dejaron un espacio ocupable en medio. Al usar la propiedad clear hacemos que este espacio no sea ocupado */
+}
+
+/* Centrado de Cajas */
+.sitio-web {
+  border: thin solid black;
+  background-color: thistle;
+  width: 800px;
+  height: 1000px;
+  padding: 16px;
+  margin: 20px auto;
+}

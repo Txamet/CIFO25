@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style_grid.css" />
+    <title>Aprendiendo Css | Grid layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Grid Layout y cómo se utiliza</h1>
+      <img src="img/goo.jpg" alt="Css Grid" />
+    </header>
+    <main><br /><br />
+      <h2>Empezando a utilizar Grid</h2>
+      <p>
+        A diferencia de Flexbox que sirve para posicionamientos en una sola
+        dimensión, el posicionamiento en Grid permite la disposh4ición de
+        elementos en 2 dimensiones, logrando establecer los valores o espacios
+        que ocuparan los elementos dentro de una composición.
+      </p><br />
+      
+      <img src="img/g01.jpg" alt="Contenedor grid" /><br /><br />
+      <h2>Contenedor con grid</h2>
+      <p>
+        Para activar la cuadrícula grid hay que determinar sobre el elemento
+        contenedor la propiedad display y especificar el valor grid o
+        inline-grid. Este valor determina como se comportará la cuadrícula con
+        el contenido exterior. El primero permite que la cuadrícula aparezca
+        encima/debajo del contenido exterior (en bloque) y el segundo de ellos
+        permite que la cuadrícula se muestre de izquierda/derecha (en línea) del
+        contenido exterior.
+      </p>
+      <pre>
+        <code>
+      &lt;div class="contenedor">
+      &lt;div class="item">ITEM 1&lt;/div>
+      &lt;div class="item">ITEM 2&lt;/div>
+      &lt;div class="item">ITEM 3&lt;/div>
+      &lt;div class="item">ITEM 4&lt;/div>
+      &lt;div class="item">ITEM 5&lt;/div>
+      &lt;div class="item">ITEM 6&lt;/div>
+      &lt;/div>
+
+      .contenedor{
+        display: grid;
+      }
+      .item{
+        background-color: #b4b8b9;
+        border: 1px solid #ffffff;
+        padding: 1rem;
+        font-family: arial;
+        color: white;
+        text-align: center;
+      }
+    </code>
+  </pre>
+   <p>Resultado:<br>
+<img src="img/g02.jpg" alt="resultado" />
+   </p>
+   <h2>Establecer los valores</h2>
+<p>Podemos observar que la disposición de los elementos no ha cambiado porque no hemos definido el numero de columnas que deberá ocupar nuestra grilla, esto lo podemos definir utilizando la propiedad grid-template-columns en distintas maneras:</p>
+<p>Utilizando la unidad de medida fr, que permite establecer la cantidad de espacio que ocupara un elemento dentro del área disponible , es decir , 1 fr es igual a una parte del espacio disponible, de esta manera podemos definir el espacio de ocupara cada elemento y la cantidad de columnas que tendrá el espacio.</p>
+<p>Por ejemplo:</p>
+<pre>
+  <code>
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+  </code>
+</pre>
+<img src="img/g03.jpg" alt="1frX3">
+<pre>
+  <code>
+	grid-template-columns: 2fr 1fr 1fr;
+</code>
+</pre>
+<img src="img/g04.jpg" alt="2frX1X1">
+<p>En este caso la primera columna ocupara 2 veces mas que el resto de las columnas.<br>
+Esta medida puede ser utilizada en unión con unidades de medidas fijas como px:</p>
+<pre>
+  <code>
+	grid-template-columns: 200px 2fr 1fr;
+</code>
+</pre>
+<img src="img/g05.jpg" alt="200X2frX1X1">
+<p>Las medidas de la primera columna serán absolutas mientras que las que estén establecidas en fr serán flexibles.</p>
+<pre>
+  <code>
+	.contenedor{
+	    display: grid;
+	    grid-template-columns: 200px 2fr 1fr;
+	    height: 500px;
+	  }
+	 .item{
+	    background-color: #b4b8b9;
+	    border: 1px solid #ffffff;
+	    padding: 1rem;
+	    font-family: arial;
+	    color: white;
+	    text-align: center;
+	  }
+    </code>
+  </pre>
+   <p>Resultado:<br>
+<img src="img/g06.jpg" alt="resultado" />
+   </p>
+   <p>Vista de la malla:<br />
+   <img src="img/g08.jpg" alt="resultado" /></p><br />
+<h2>Definiendo el numero de filas que tendrá nuestra malla:</h2>
+<p>Determinaremos el numero de filas utilizando la propiedad grid-template-rows que puede ser utilizado igual que grid-template-columns, definiendolo en fr o medidas como px, rem, em vh o vw.</p>
+<pre>
+  <code>
+	grid-template-rows: 1fr 1fr 1fr;
+  </code>
+  </pre>
+  <p>
+   <img src="img/g09.jpg" alt="resultado" /></p>
+   <p>Ejemplo:</p>
+   <pre>
+    <code>
+    &lt;div class="item">ITEM 1&lt;/div>
+    &lt;div class="item">ITEM 2&lt;/div>
+    &lt;div class="item">ITEM 3&lt;/div>
+    &lt;div class="item">ITEM 4&lt;/div>
+    &lt;div class="item">ITEM 5&lt;/div>
+    &lt;div class="item">ITEM 6&lt;/div>
+	
+  .contenedor{
+	   display: grid;
+	   height: 100vh; /*ocupa el alto de la pantalla*/
+	   grid-template-columns: repeat(3, 1fr); /*los elementos ocuparan 3 columnas*/
+	   grid-template-rows: repeat(2, 1fr);  /*los elementos ocuparan 2 filas*/
+	 }
+	.item{
+	   border: 3px solid #ffffff;
+	   padding: 1rem;
+	   font-family: arial;
+	   color: white;
+	   text-align: center;
+	   background: linear-gradient(135deg, rgb(97, 234, 222) 0%, rgb(30, 168, 255) 100%);
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   font-size: 2rem;
+	}
+   </code>
+  </pre>
+   <p>Resultado:<br>
+    <img src="img/g11.jpg" alt="resultado" />
+   </p>
+   <p>Si aumentáramos la propiedad grid-template-rows: repeat(3, 1fr); a tres filas el resultado seria:
+<br /><img src="img/g12.jpg" alt="resultado" /></p>
+  <p>También podremos establecer que algunas filas ocupen mayor espacio que otras</p>
+    <pre>
+      <code>
+      grid-template-rows: repeat(1, 2fr) repeat(1, 1fr);
+    </code>
+  </pre>
+ <p><img src="img/g13.jpg" alt="resultado" /></p>
+  <p>A parte de poder establecer el numero de columnas y filas y del espacio que ocuparan cada una de ellas, también podremos establecer estos valores en cada celda individual, incluso superponiendo celdas con otras, esto lo podemos lograr con las propiedades:</p>
+  <p>-grid-column-start:  el lugar  de inicio entre las columnas que ocupara esta celda o item.<br>
+  -grid-column-end  el lugar final entre las columnas que ocupara esta celda o item.<br>
+  -grid-row-start: el lugar  de inicio entre las filas que ocupara esta celda o item.<br>
+  -grid-row-end el lugar final entre las filas que ocupara esta celda o item.</p>
+  <p>Por ejemplo, si establecimos que los valores de grid-template-columns: serian : 1fr 1fr 1fr 1fr; y los de<br>
+  grid-template-rows: serian: 1fr 1fr 1fr:</p>
+    <pre>
+      <code>
+      &lt;div class="contenedor">
+          &lt;div class="item one">ITEM 1&lt;/div>
+          &lt;div class="item two">ITEM 2&lt;/div>
+          &lt;div class="item">ITEM 3&lt;/div>
+          &lt;div class="item">ITEM 4&lt;/div>
+          &lt;div class="item">ITEM 5&lt;/div>
+          &lt;div class="item">ITEM 6&lt;/div>
+          &lt;div class="item">ITEM 7&lt;/div>
+          &lt;div class="item">ITEM 8&lt;/div>
+          &lt;div class="item">ITEM 9&lt;/div>
+    &lt;/div>
+    
+    .contenedor{
+        display: grid;
+        grid-template-columns:  1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .one {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    </code>
+  </pre>
+  <img src="img/g14.jpg" alt="resultado" />
+  <h2>Superposición de celdas:</h2>
+      <p>Con este  método también podemos superponer celdas determinando la relevancia de cada uno mediante la propiedad z-index:</p>
+      <pre>
+        <code>
+        .one {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+          }
+        .two {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+          }
+        </code>
+      </pre>
+        <p>que seria lo mismo que:</p>
+        <pre>
+          <code>
+          .one{
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+          }
+          .two{
+            grid-column: 2 / 4;
+            grid-row: 1 / 2;
+          }
+          </code>
+        </pre>
+          <p>Resultado:<br />
+            <img src="img/g15.jpg" alt="resultado" />
+          </p>
+    <h2>Denominando áreas de grilla</h2>
+<p>La propiedad grid-template-areas permite ponerle nombres a cada una de las celdas, determinado el espacio que ocuparan y la ubicación de estas. Podemos emplearlas de la siguiente manera:</p>
+<pre>
+  <code>
+  &lt;div class="contenedor">
+        &lt;div class="header">HEADER&lt;/div>
+        &lt;div class="sidebar">SIDEBAR&lt;/div>
+        &lt;div class="main">MAIN&lt;/div>
+        &lt;div class="footer">FOOTER&lt;/div>
+  &lt;/div>
+
+  .contenedor{
+      display: grid;
+      height: 98vh;
+      grid-template-areas: "header header"
+                           "siderbar  main"
+                           "footer  footer";
+      grid-template-rows: 80px 1fr 80px;
+      grid-template-columns: 300px 1fr;
+  }
+  .header{
+    grid-area: header;
+  }
+  .siderbar{
+    grid-area: siderbar;
+  }
+  .main{
+    grid-area: main;
+  }
+  .footer{
+    grid-area: footer;
+  }
+  </code>
+</pre>
+  <img src="img/g16.jpg" alt="resultado" />
+</p>
+<h2>Repetir columnas y filas utilizando la propiedad repeat()</h2>
+<p>La propiedad repeat () representa un fragmento repetido de la lista de pistas, lo que permite escribir un gran número de columnas o filas que exhiben un patrón recurrente en una forma más compacta.</p>
+<p>Por ejemplo:</p>
+<pre>
+  <code>
+    grid-template-columns: 1fr 1fr 1fr;
+</code>
+</pre>
+<p>seria igual a:</p>
+<pre>
+  <code>
+    grid-template-columns: repeat(3, 1fr);
+</code>
+</pre> 
+<p>y:</p>
+<pre>
+  <code>
+    grid-template-columns: 2fr 2fr  2fr 1fr 1fr 1fr;
+ </code>
+</pre>
+ <p>seria igual a:</p>
+ <pre>
+  <code>
+    grid-template-columns: repeat(3, 2fr 1fr);
+</code>
+</pre>
+<h2>Propiedad minmax</h2>
+<p>Podemos establecer mediante esta propiedad  el tamaño mínimo y máximo de las filas y columnas, previendo los cambios que tendrá el objeto al reducirse o ampliarse el tamaño de la pantalla.</p>
+<p>Por ejemplo</p>
+<pre>
+  <code>
+  .contenedor{
+     display: grid;
+     grid-template-columns:minmax(100px, 200px) 1fr 1fr;
+  }
+  </code>
+</pre>
+<p>También podemos establecer valores en otras unidades de medidas flexibles:</p>
+<pre>
+  <code>
+    grid-template-columns:minmax(20%, 40%) 1fr 1fr;
+  </code>
+</pre>
+<img src="img/g17.jpg" alt="resultado" />
+<h2>Espaciado entre  filas y columnas (grid-gap)</h2>
+<p>Con esta propiedad definiremos el espaciado que habrá entre las filas y columnas, pudiendo ser especificadas en pixeles o porcentaje.</p>
+<p>Si se quiere que las medidas asignadas apliquen tanto a filas como columnas se puede usar la propiedad grid-gap:</p>
+  <pre>
+    <code>
+    .contenedor {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+    </code>
+  </pre>
+  <img src="img/g20.jpg" alt="resultado" />
+  <h2>grid-auto-flow: row / column</h2>
+<p>Tal como la propiedad que tiene flex de dirigir la disposición que tendrán los items (ya sea en filas o en columnas), grid tiene la propiedad grid-auto-flow:</p>
+<pre>
+  <code>
+    grid-auto-flow: row
+  </code>
+</pre>
+<img src="img/g21.jpg" alt="resultado" />
+  <pre>
+    <code>
+      grid-auto-flow: column
+    </code>
+  </pre>
+  <img src="img/g22.jpg" alt="resultado" />
+  <h2>Justificado de columnas con justify-content</h2>
+<p>justify-content: left;<br />
+<img src="img/g23.jpg" alt="resultado" /></p>
+<p>justify-content: right;<br />
+<img src="img/g24.jpg" alt="resultado" /></p>
+<p>justify-content: center;<br />
+<img src="img/g25.jpg" alt="resultado" /></p>
+<p>justify-content: space-between;<br />
+<img src="img/g26.jpg" alt="resultado" /></p>
+<p>justify-content: space-around;<br />
+<img src="img/g27.jpg" alt="resultado" /></p>
+<p>justify-content: space-evenly;<br />
+<img src="img/g28.jpg" alt="resultado" /></p>
+<h2>Alineado de filas con align-conten</h2>
+<p>align-items: start<br />
+<img src="img/g29.jpg" alt="resultado" /></p>
+<p>align-items: end<br />
+<img src="img/g30.jpg" alt="resultado" /></p>
+<p>align-items: center<br />
+<img src="img/g31.jpg" alt="resultado" /></p>
+<p>align-items: stretch<br />
+<img src="img/g32.jpg" alt="resultado" /></p>
+<h2>Soporte de grid en navegadores</h2>
+<p>En el siguiente <a href="https://caniuse.com/#search=grid" rel="noopener noreferrer" target="_blank">link</a> se pude consultar el soporte actual que tiene el grid layoud en los distintos navegadores.</p>
+<img src="img/support.png" alt="resultado" />
+
+    </main>
+  </body>
+</html>

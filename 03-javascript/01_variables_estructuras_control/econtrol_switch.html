@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura switch case</title>
+</head>
+<body>
+  <div id="mostrar"></div>
+  <script>
+    let num_1 = Number(prompt("Introduce un número del 1 al 30"));
+    let result;
+
+    switch( num_1 ){ 
+      case 10: 
+        result = `${num_1} vale 10`; 
+      break;
+
+      case 20: 
+        result = `${num_1} vale 20`; 
+      break;
+
+      case 30: 
+        result = `${num_1} vale 30`; 
+      break;
+
+      default: 
+        result = `${num_1} no vale 10, 20 ni 30`; 
+    } 
+    
+    alert(result);
+    document.getElementById("mostrar").innerHTML = result;
+
+    let salirONo = confirm("¿Volver a cargar el juego?");
+
+    if (salirONo) {
+      location.reload();
+    } else {
+      salir();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+/* 
+Regla CSS consta de 2 partes:
+1) Selector
+2) Bloque de declaraciones: {
+    atributo: valor;
+    atributo-de-mas-dos-palabras: otro-valor;
+    otro-atributo-de-caja: valor valor valor valor;
+  }
+    
+Selector: etiqueta de HTML, etiquetas, o atributos específicos con o sin valor.  
+*/
+
+/* Reseteo personal para los navegadores */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  /* Variables */
+  --violeta: blueviolet; /* las variables se declaran: --nombrevariable */
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 10px;
+  min-height: 100%; /* ó 100vh */
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: inherit;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Fin reseteo */
+
+small,
+p,
+address,
+.parrafo-dos {
+  color: blue;
+}
+
+p {
+  color: black;
+  background-color: aquamarine;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px !important; /* el !important indica que manda sobre toda jerarquía, considerado com mala práctica por no pensar bien una jerarquía */
+  line-height: 1.5;
+  padding: 20px;
+}
+
+small {
+  font-size: 14px;
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+h3 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 24px;
+  color: var(--violeta);
+}
+
+/* # para id */
+#menu {
+  list-style: none;
+}
+
+#jerarquia {
+  color: black;
+}
+
+/* . para class */
+.parrafo-dos {
+  font-size: 22px;
+}
+
+.tipo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.strong {
+  font-weight: 900;
+}
+.color {
+  color: cadetblue;
+}
+
+.desactivar {
+  pointer-events: none;
+}
+
+/* Dentro de la clase directos, se aplica sólo a los li más inmediatos, sus hijos */
+.directos > li {
+  background-color: burlywood;
+}
+
+/* Se aplica a todos los hijos y descendientes con etiqueta strong */
+.directos strong {
+  color: red;
+}
+
+/* A partir de este, sin incluirse, los siguientes adoptan este estilo */
+.hermano-general ~ li {
+  background-color: yellow;
+}
+
+/* Adopta el estilo sólo para el siguiente */
+.hermano-adyacente + li {
+  background-color: red;
+}
+
+/* Para esta clase, sólo aquellas etiquetas <a> que tengan el atributo href */
+.atributos a[href] {
+  font-weight: bolder;
+}
+
+/* Para esta clase, sólo aquellas etiquetas <a> que tengan el atributo target */
+.atributos a[target] {
+  color: red;
+}
+
+/* Para esta clase, sólo aquellas etiquetas <a> que tengan el atributo target con el valor "new" */
+.atributos a[target="new"] {
+  color: green;
+}
+
+/* Para esta clase, sólo aquellas etiquetas <a> que tengan el atributo href y cuyo valor empiece por "http://" */
+.atributos a[href^="http://"]
+{
+  color: blueviolet;
+}
+
+/* Para esta clase, sólo aquellas etiquetas <a> que tengan el atributo href y cuyo valor acabe por ".eu" */
+.atributos a[href$=".eu"] {
+  color: orange;
+}
+
+/* Para esta clase, sólo aquellas etiquetas que tengan la clase opcion */
+.atributos .opcion {
+  text-decoration: none;
+}
+
+/* *** PSEUDOCLASES *** */
+
+/* El visited tiene que ir entre el a y el hover para que funcione, se activa si ya fue clickado el elemento */
+a:visited {
+  color: yellowgreen;
+  background-color: chocolate;
+}
+/* El hover se activa al pasar el ratón por encima */
+a:hover {
+  color: white;
+  /* background-color: black; */
+}
+
+/* El active se activa mientras se interactúa con el elemento, p.ej. mientras pulsas un enlace */
+a:active {
+  color: red;
+}
+
+/* ***RESETEO DE NAVEGADORES*** */

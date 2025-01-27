@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setInterval y setTimeout</title>
+</head>
+<body>
+  <script>
+    /* setInterval se ejecuta cada x tiempo */
+    setInterval(function () {
+      alert("Hello");
+    }, 1000);
+
+    /* setTimeout se ejecuta sólo una vez al haber transcurrido x tiempo */
+    setTimeout(() => {
+      alert("Hello!");
+    }, 3000);
+  </script>
+</body>
+</html>

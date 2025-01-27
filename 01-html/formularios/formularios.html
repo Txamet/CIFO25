@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios en HTML 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Formularios en HTML 5</h1>
+    <h3>Contacta con nosotros</h3>
+    <form
+      action="https://formsubmit.co/jaumeblancog@gmail.com"
+      method="post"
+      autocomplete="on"
+    >
+      <fieldset>
+        <legend>Datos personales</legend>
+        <div>
+          <label for="nombre">Nombre y apellidos: </label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Ej: Jaume Blanco"
+            autofocus
+            required
+            pattern="^[A-ZÀ]{1}[a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,40}$"
+          />
+        </div>
+        <div>
+          <label for="telefono">Teléfono: </label>
+          <input type="text" name="telefono" id="telefono" pattern="\d{9,13}" />
+        </div>
+        <div>
+          <label for="correo">Correo electrónico:</label>
+          <input
+            type="email"
+            name="correo"
+            id="correo"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+            required
+          />
+        </div>
+        <div>
+          <label for="edad">Fecha nacimiento: </label>
+          <input type="date" name="edad" id="edad" />
+        </div>
+        <div>
+          <label for="sexo">Sexo: </label>
+          <input type="radio" name="sexo" id="sexo" value="hombre" />
+          <label for="sexo">Hombre</label>
+          <input type="radio" name="sexo" id="sexo" value="mujer" />
+          <label for="sexo">Mujer</label>
+          <input type="radio" name="sexo" id="sexo" value="no_binario" />
+          <label for="sexo">No binario</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Datos profesionales y preferenciales</legend>
+        <div>
+          <label for="idioma">Idioma materno: </label>
+          <select name="idioma" id="idioma" required>
+            <option value="" selected>Elige una opción</option>
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="de">Alemán</option>
+            <option value="it">Italiano</option>
+            <option value="fr">Francés</option>
+          </select>
+        </div>
+        <div>
+          <label for="lenguajes"
+            >Lenguajes de programación que conozcas:
+          </label>
+          <br />
+          <select name="lenguajes" id="lenguajes" required multiple>
+            <option value="js">JavaScript</option>
+            <option value="php">PHP</option>
+            <option value="java">Java</option>
+            <option value="c++">C++</option>
+            <option value="py">Python</option>
+          </select>
+        </div>
+        <div>
+          <p>
+            Aficiones:
+            <input
+              type="checkbox"
+              name="deportes"
+              id="deportes"
+              value="deportes"
+            />
+            <label for="deportes">Deportes</label>
+            <input
+              type="checkbox"
+              name="lectura"
+              id="lectura"
+              value="lectura"
+            />
+            <label for="lectura">Lectura</label>
+            <input type="checkbox" name="cine" id="cine" value="cine" />
+            <label for="cine">Cine</label>
+            <input
+              type="checkbox"
+              name="videojuegos"
+              id="videojuegos"
+              value="videojuegos"
+            />
+            <label for="videojuegos">Videojuegos</label>
+          </p>
+        </div>
+        <div>
+          <label for="cv">Sube tu CV</label>
+          <input type="file" name="cv" id="cv" accept=".doc, .pdf, .jpg" />
+        </div>
+        <div>
+          <label for="consulta">Explícanos en que podemos ayudarte: </label
+          ><br />
+          <textarea name="consulta" id="consulta"></textarea>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Envío de datos</legend>
+        <input type="reset" value="Restablecer" />
+        <!-- Forma equivalente con etiqueta button: <button type="submit">Restablecer</button> -->
+        <input type="submit" value="Enviar" />
+      </fieldset>
+    </form>
+    <p><a href="../index.html#formularios">Volver al inicio</a></p>
+  </body>
+</html>

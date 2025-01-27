@@ -1,0 +1,174 @@
+/* MI CÓDIGO */
+/* 
+:root {
+  font-size: 24px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+header,
+footer {
+  display: flex;
+  background-color: yellow;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  padding-left: 3rem;
+  height: 15%;
+}
+
+#main {
+  display: flex;
+  flex-flow: column;
+  height: 70%;
+}
+
+nav,
+aside {
+  display: flex;
+  background-color: rgb(159, 110, 35);
+  padding-left: 3rem;
+  padding-top: 1rem;
+  height: 20%;
+}
+
+#main article {
+  padding: 3rem;
+  padding-bottom: 3rem;
+  height: 60%;
+}
+
+article > div {
+  padding: 0.5rem;
+}
+
+#verde {
+  background-color: greenyellow;
+  height: 70%;
+}
+
+#azul {
+  background-color: rgb(62, 109, 239);
+  height: 10%;
+}
+
+@media screen and (min-width: 1024px) {
+  #main {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  nav,
+  aside {
+    width: 25%;
+    display: flex;
+    height: 100%;
+  }
+
+  #main article {
+    width: 50%;
+    height: 85%;
+  }
+} */
+
+/* CÓDIGO DE DONNY */
+
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box; /* IMPORTANTE: Hace que mis tamaños dependan del width que le de a la caja (elemento), sin contar el tamaño de bordes, margenes o paddings */
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  /*   flex-flow: column nowrap;
+ */
+}
+header {
+  /* atributo como hijo de body*/
+  flex-grow: 1;
+  /* fin atributo como hijo */
+  background-color: rgb(255, 214, 124);
+  padding: 2rem;
+}
+div#main {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  /* atributo como hijo de body*/
+  flex-grow: 3;
+  /* fin atributo como hijo */
+}
+div > nav {
+  background-color: rgb(206, 206, 108);
+  padding: 2rem;
+  /* atributos como hijo de div#main */
+  flex-grow: 1;
+  /* fin atributos como hijo*/
+}
+div > aside {
+  background-color: rgb(206, 206, 108);
+  padding: 2rem;
+  /* atributos como hijo de div#main */
+  flex-grow: 1;
+  /* fin atributos como hijo*/
+}
+div > article {
+  /* atributos como padre */
+  display: flex;
+  flex-flow: column nowrap;
+  /* fin atributos como padre */
+  /* atributos como hijo de div#main */
+  flex-grow: 3;
+  /* fin atributo como hijo */
+  padding: 3rem;
+}
+div#verde {
+  background-color: rgb(189, 239, 115);
+  padding: 1rem;
+  /* atributo como hijo article */
+  flex-grow: 20;
+  /* fin atributo como hijo */
+}
+div#azul {
+  background-color: skyblue;
+  padding: 1rem;
+  /* atributo como hijo de article */
+  flex-grow: 0;
+  /* fin atributo como hijo */
+}
+footer {
+  background-color: rgb(255, 214, 124);
+  padding: 2rem;
+  /* atributo como hijo de body */
+  flex-grow: 1;
+  /* fin atributo como hijo */
+}
+@media screen and (max-width: 850px) {
+  div#main {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

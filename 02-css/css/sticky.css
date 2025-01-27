@@ -1,0 +1,31 @@
+/* 
+Sticky: es una combinación de posicionamiento relative y fixed. Para este posicionamiento las propiedades top, left, bottom y right no mueven el elemento, sireven como un punto de referencia y, mientras no llegue su posición a ese valor, el elemento se comporta como relative.
+
+Para que este comportamiento funcione, el elemento sticky debe ser hijo directo del body o su elemento contenedor debe tener dimensiones definidas, y sólo sera sticky dentro de las dimensiones de su contenedor padre.
+*/
+
+#cabecera {
+  width: 100%;
+  height: 500px;
+  background-color: transparent;
+  border: 10px solid black;
+}
+
+.sticky {
+  background-color: aqua;
+  position: sticky;
+  height: 20px;
+  top: 100px; /* El top determina la altura a la que se fija el sticky, si no se pone este atributo no se fija */
+  z-index: 1;
+}
+
+.sticky-parent {
+  border: 1px solid black;
+  height: 800px;
+}
+
+.sticky-child {
+  background-color: chartreuse;
+  position: sticky;
+  top: 121px;
+}

@@ -1,0 +1,105 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+}
+
+header > img {
+  width: 100%;
+}
+
+body {
+  background-color: rgb(237, 237, 84);
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-bottom: 10rem;
+}
+
+section {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 300px;
+  height: 500px;
+  flex-grow: 1;
+}
+
+section > img {
+  width: 80%;
+  padding: 1rem;
+  align-self: center;
+}
+
+section > h2 {
+  justify-content: left;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  order: 1;
+}
+
+p {
+  order: 2;
+  text-align: center;
+  padding: 1.5rem 1rem 5rem 1.5rem;
+}
+
+button {
+  align-self: center;
+  position: absolute;
+  width: 10rem;
+  padding: 2px;
+  margin-top: 450px;
+  margin-bottom: 10px;
+  border-color: black;
+  order: 3;
+}
+
+.uno {
+  background-color: cadetblue;
+}
+
+.dos {
+  background-color: green;
+}
+
+.tres {
+  background-color: lightgreen;
+}
+
+@media screen and (min-width: 600px) {
+  .uno {
+    order: 1;
+  }
+
+  .tres {
+    order: 2;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .uno {
+    order: 2;
+  }
+
+  .dos {
+    order: 1;
+  }
+
+  .tres {
+    order: 0;
+  }
+}

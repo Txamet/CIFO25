@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iframes con HTML 5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>Iframes con HTML 5</h1>
+    <h3>Iframe con menú de navegación</h3>
+    <p>
+      <a href="../audio-video/audio_video.html" target="marco"
+        >Ver audio y vídeo</a
+      >
+      ||
+      <a href="https://docs.emmet.io/cheat-sheet/" target="marco">
+        Ver Cheat Sheet de Emmet</a
+      >
+    </p>
+    <iframe src="../hello-world.html" name="marco"></iframe>
+    <h3>Iframe desde Google maps</h3>
+    <!-- Ir a google maps. Una vez elegida la ubicación, le damos a compartir. Ahí seleccionamos insertar un mapa. Seleccionamos tamaño personalizado, introducimos la resolución y copiamos el código html que nos proporciona para incrustar en nuestro código -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5984.07607583763!2d2.132608873589267!3d41.416692948723146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4981b5fdca4b1%3A0x35e8d1d280af19bd!2sCentre%20d&#39;Innovaci%C3%B3%20i%20Formaci%C3%B3%20Ocupacional%20(CIFO)%20de%20Barcelona%20La%20Violeta!5e0!3m2!1ses!2ses!4v1733928982743!5m2!1ses!2ses"
+      width="800"
+      height="400"
+      style="border: 1"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h3>Iframe desde YouTube</h3>
+    <!-- Una vez en el video de YouTube que queremos incrustar, seleccionamos compartir. Elegimos Insertar (la primera opción) y copiamos el código html que nos aparece en el popup -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/eesyGnJwfAY?si=Vhcad6KPo9mxYtEZ"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <p><a href="../index.html#iframes">Volver al index</a></p>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  width: 100%;
+  background-image: url("./images/bg.png");
+}
+
+header {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+main {
+  text-align: center;
+}
+
+article {
+  background-image: url("./images/bgButton.png");
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 180px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+article img {
+  padding: 25px 50px 5px 50px;
+  width: 50%;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicis T2.2 Objectes Predefinits de JavaScript</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+  </head>
+  <body>
+    <header class="container text-center mt-5">
+      <h1>T2-2 Objectes predefinits de JavaScript</h1>
+    </header>
+    <main class="container">
+      <article class="container border border-black mt-5 p-3">
+        <h3>Exercici 8</h3>
+        <p>
+          Escriu un html que en obrir-se canviï el title que hagis posat al head
+          de l'html per un altre que vulguis. Canvieu el color de fons de l'html
+          de blanc a gris i el color del text que tingueu.
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioOcho()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 9</h3>
+        <p>
+          Crea un nou document HTML amb un script que ens mostri l'amplada de
+          pantalla, alt de pantalla, amplada útil, alt útil, i diagonal de
+          pantalla en píxels.
+        </p>
+        <p><strong>Resposta: </strong><div id="exercici_nou"></div></p>
+        <button class="btn btn-primary me-2" onclick="ejercicioNueve()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 11</h3>
+        <p>
+          Escriu un html que permeti obrir des d'un botó, una finestra
+          controlada des de javascript, escrivint l'html necessari per mostrar
+          un text amb les propietats utilitzades i un botó que permeti tancar la
+          nova finestra.
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioOnce()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 12</h3>
+        <p>
+          Escriu un programa que demani per input un text i si és més llarg de
+          10 caràcters, extreu els 5 últims i mostra'ls en pantalla.
+        </p>
+        <p>Escriu el text: <input type="text" id="input_exercici_dotze" /></p>
+        <p>
+          <strong>Resposta:</strong> <span id="resposta_exercici_dotze"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioDoce()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 13</h3>
+        <p>
+          Escriu un html que demani per prompt un text, guarda'l com un objecte
+          String i que ens permeti saber el nombre de caràcters escrits, que ens
+          permeti reescriure'l en cursiva, en negreta, en color vermell, a una
+          grandària molt gran, i finalment titllat.
+        </p>
+        <p>Escriu el text: <input type="text" id="input_exercici_tretze" /></p>
+        <p></p>
+        <p>
+          <strong>Resposta:</strong> <span id="resposta_exercici_tretze"></span>
+        </p>
+        <p>
+          <label for="opcions_exercici_tretze">Escull una opció: </label>
+          <select name="opcions_exercici_tretze" id="opcions_exercici_tretze">
+            <option value="nombre">Nombre de caràcters</option>
+            <option value="cursiva">Reescriure en cursiva</option>
+            <option value="negreta">Reescriure en negreta</option>
+            <option value="vermell">Reescriure en vermell</option>
+            <option value="augmentar">Augmentar grandària text</option>
+            <option value="titllar">Titllar text</option>
+          </select>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioTrece()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 14</h3>
+        <p>
+          Escriu un programa que permeti escriure una taula amb quatre cel·les
+          (dues files i dues columnes), amb vores col·lapsades i un text a cada
+          cel·la.
+        </p>
+        <p>
+          <strong>Resposta:</strong>
+          <div id="resposta_exercici_catorze"></div>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioCatorce()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 15</h3>
+        <p>
+          Fes un programa que et permeti entrar per prompt la base d'un
+          triangle, després l'alçada en un altre, i mostra en un d.write la seva
+          àrea.
+        </p>
+        <p>
+          Escriu la base:
+          <input type="number" id="input_exercici_quinze_base" />
+        </p>
+        <p>
+          Escriu l'alçada:
+          <input type="number" id="input_exercici_quinze_height" />
+        </p>
+        <p>
+          <strong>Resposta:</strong>
+          <span id="resposta_exercici_quinze"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioQuince()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exeercici 16</h3>
+        <p>
+          Fes un programa que et permeti des d'un botó, encendre o apagar una
+          imatge d'una bombeta segons els gifs donats.
+        </p>
+        <div id="resposta_exercici_setze" class="container m-3">
+          <img
+            id="apagada"
+            src="./imgs_T2/apagada.gif"
+            alt="bombeta apagada"
+            title="bombeta apagada"
+          />
+          <img
+            id="encesa"
+            src="./imgs_T2/encendida.gif"
+            alt="bombeta encesa"
+            title="bombeta encesa"
+            hidden
+          />
+        </div>
+        <button class="btn btn-primary me-2" onclick="ejercicioDieciseis()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 p-3">
+        <h3>Exercici 17</h3>
+        <p>
+          Crea un programa que permeti saber a mil·lisegons quan va acabar el
+          món segons el calendari Maya, recull a més el dia, mes, any, hora,
+          minuts, segons actuals i dia de la setmana.
+        </p>
+        <p>
+          <strong>Resposta:</strong>
+          <span id="resposta_exercici_diset"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioDiecisiete()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+      <article class="container border border-black mt-4 mb-4 p-3">
+        <h3>Exercici 18</h3>
+        <p>
+          Escriu un html que en carregar-se ens digui el nombre de mil·lisegons
+          passats des de l'1 de gener de 1970.
+        </p>
+        <p>
+          <strong>Resposta:</strong>
+          <span id="resposta_exercici_divuit"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="ejercicioDieciocho()">Executa</button>
+        <button class="btn btn-warning" onclick="reload()">Neteja</button>
+      </article>
+    </main>
+    <script src="./js/ejerciciosT2.js"></script>
+  </body>
+</html>

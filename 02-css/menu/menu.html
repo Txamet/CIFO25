@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú colapsable sin JavaScript</title>
+    <link rel="stylesheet" href="./css/style_collapsabile.css" />
+  </head>
+  <body>
+    <!-- header>nav>label{&equiv;}+input[type="checkbox"]+ul>(li>a)*4 -->
+    <header>
+      <nav>
+        <label class="show-menu" for="show-menu">&equiv;</label>
+        <input id="show-menu" type="checkbox" />
+        <ul id="menu">
+          <li><a href="">HOME</a></li>
+          <li><a class="selected" href="">PRODUCTOS</a></li>
+          <li><a href="">NOSOTROS</a></li>
+          <li><a href="">SERVICIOS</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

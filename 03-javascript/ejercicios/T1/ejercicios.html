@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicis Introducció a  Javascript . Variables, bucles i estructures de control</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main>
+    <h1>Exercicis introducció a  Javascript . Variables, bucles i estructures de control</h1>
+    <article>
+      <h3>Exercici 1</h3>
+      <p>Realitza un programa que demani un número per prompt i escrigui en la consola tot el compte fins a 0, amb els Bucles For, amb while i amb Do While.</p>
+      <p><strong>Resposta: </strong>Veure a la consola.</p>
+      <button onclick="ejercicioUno()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 2</h3>
+      <p>Realitza un programa que demani un número per prompt i escrigui en la consola el seu factorial complet amb do while, for i while.</p>
+      <p><strong>Resposta: </strong>Veure a la consola.</p>
+      <button onclick="ejercicioDos()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 3</h3>
+      <p>Realitza un programa que ens demani per prompt una nota d'un alumne entre 0 i 10 punts, recollirà la nota i ens dirà:</p>
+      <ol>
+        <li>Suspens (entre 0 i menys que 5)</li>
+        <li>Aprovat (entre 5 i menys que 6)</li>
+        <li>Bé (entre 6 i menys que 7)</li>
+        <li>Notable (entre 7 i menys que 9)</li>
+        <li>Excel·lent (de 9 a 10 inclosos)</li>
+      </ol>
+      <p><strong>Resposta: </strong><span id = "respuesta_ejercicio_tres"></span></p>
+      <button onclick="ejercicioTres()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 4</h3>
+      <p>Realitza un altre programa que ens demani per prompt una nota d'un alumne entre 0 i 10 punts, després altra i retorni la nota mitjana dels dos exercicis amb els mateixos paràmetres que el programa anterior.</p>
+      <p><strong>Resposta: </strong><span id = "respuesta_ejercicio_cuatro"></span></p>
+      <button onclick="ejercicioCuatro()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 5</h3>
+      <p>
+        Crea i vincula amb un HTML un nou document JavaScript amb el nom
+        “ejercicioSupInf.js” que demani dos números a l'usuari mitjançant dos “prompt()” I mostri un “alert()” indicant quin dels dos és superior i quin inferior tret que els dos siguin iguals, en tal cas ha d'indicar que els dos són iguals. En tots els casos s'han de mostrar els números introduïts.
+      </p>
+      <p><strong>Resposta: </strong><span id = "respuesta_ejercicio_cinco"></span></p>
+      <button onclick="ejercicioCinco()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 6</h3>
+      <p>
+        Crea i vincula amb l'HTML un nou document JavaScript amb el nom “ejercicioDia.js” que demani per “prompt()” el nom del dia de la setmana (pej:
+        “dilluns”, “dimarts”, etc..) i utilitzant una estructura de control “switch” emmagatzemi en una variable el número del dia corresponent començant per dilluns i una vegada finalitzat el “switch” mostri un “alert()” indicant el número de la setmana
+        corresponent. pej: si s'introdueix “dilluns”, s'ha de mostrar el missatge “dia de la setmana 1”, si s'introdueix “diumenge”, s'ha de mostrar el missatge “dia de la setmana 7”.
+      </p>
+      <p><strong>Resposta: </strong><span id = "respuesta_ejercicio_seis"></span></p>
+      <button onclick="ejercicioSeis()">Executa</button>
+    </article>
+    <article>
+      <h3>Exercici 7</h3>
+      <p>
+        Crea i vincula amb l'HTML un nou document JavaScript amb el nom
+        “numeroMayor.js” que demani números a l'usuari (per “prompt()”) mentre l'usuari no introdueixi un número superior a 50. Si l'usuari introdueix un número superior o igual a 50 ha de mostrar un “alert()” amb un missatge que indiqui quantes vegades s'ha introduït un número menor a 50.
+      </p>
+      <p><strong>Resposta: </strong><span id = "respuesta_ejercicio_siete"></span></p>
+      <button onclick="ejercicioSiete()">Executa</button>
+    </article>
+  </main>
+  <script src="./js/ejercicio_uno.js"></script>
+  <script src="./js/ejercicioSupInf.js"></script>
+  <script src="./js/ejercicioDia.js"></script>
+  <script src="./js/numeroMayor.js"></script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metaetiquetas de SEO y móviles -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apps 24 | Aprendiendo HTML</title>
+
+    <meta name="description" content="En esta página estamos aprendiendo los fundamentos de HTML">
+    <!-- Para indicar la página canónica de esta: -->
+    <!-- <link rel="canonical" href="http://tudominio.com/la-url-canonica"> -->
+    <!-- Para añadir un icono en la pestaña del navegdor, donde va el title -->
+    <link rel="icon" href="./img/favicon.png">
+    <link rel="apple-touch.icon" href="./img/favicon.png">
+
+    <!-- Metaetiquetas para Redes Sociales -->
+     <!-- Facebook: 
+      meta property="og:locale"
+      meta property="og:type"
+      meta property="og:title"
+      meta property="og:description"
+      meta property="og:image"
+      meta property="og:url"
+     -->
+     <!-- 
+     <meta property="og:title" content="Aprendiendo HTML">
+     <meta property="og:description" content="En esta página estamos aprendiendo los fundamentos de HTML">
+     <meta property="og:image" content="https://tudominio.com/img/periodic-table-of-html-elements.png">
+     <meta property="og:url" content="https://tudominio.com/index.html"> 
+     -->
+
+    <!-- Twitter: 
+      meta name="twitter:card"
+      meta name="twitter:title"
+      meta name="twitter:description"
+      meta name="twitter:site"
+      meta name="twitter:image"
+     -->
+    <!-- 
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@jaumeblanco"> 
+    -->
+
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+      /* Si quisiésemos podríamos poner aquí el código CSS, pero la buena práctica es tener un archivo aparte en su carpeta correspondiente */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <!-- A continucación un script integrado en header en vez del body -->
+    <script>
+      function abreAlerta() {
+        window.alert("Has apretado el botón Abrir Alert");
+      }
+    </script>
+  </head>
+  <body id="inicio">
+    <!-- 
+    Enlaces de la UF de HTML y su documentación:
+      - https://www.w3.org/html
+      - https://html.spec.whatwg.org
+      - https://www.w3.org/blog/news/archives/7753
+      - https://developer.mozilla.org/es/docs/Web/HTML
+      - https://htmlreference.io
+      - Caracteres especiales HTML https://desarrolloweb.com/articulos/11.php
+      - https://w3schools.com
+      - https://fontello.com
+      - http://archive.org/  Para imágnes, video, etc de libre distribución
+    -->
+
+    <h3>Índice de HTML</h3>
+    <!-- Comentario: seleccionado + alt+shift+a -->
+    <!-- ul>(li>a)*20 -->
+    <ul>
+      <li><a href="#encabezados">Encabezados HTML</a></li>
+      <li><a href="#basicos">Etiquetas de Texto Básicas</a></li>
+      <li><a href="#semanticos">Etiquetas de Texto Semánticas</a></li>
+      <li><a href="#saltos">Etiquetas de Saltos</a></li>
+      <li><a href="#formateo">Etiquetas de Formateo</a></li>
+      <li><a href="#estructurales">Etiquetas Semánticas Estructurales</a></li>
+      <li><a href="#bloque-linea">Etiquetas de Bloque VS Etiquetas de Línea</a></li>
+      <li><a href="#estilos">Estilos CSS en HTML</a></li>
+      <li><a href="#scripts">Scripts en HTML</a></li>
+      <li><a href="#imagenes">Imágenes</a></li>
+      <li><a href="#figure">Figure y Picture</a></li>
+      <li><a href="#ordenadas">Listas Ordenadas</a></li>
+      <li><a href="#desordenadas">Listas Desordenadas</a></li>
+      <li><a href="#definicion">Listas de Definición</a></li>
+      <li><a href="#tablas">Tablas</a></li>
+      <li><a href="#enlaces">Enlaces o Hipervínculos</a></li>
+      <li><a href="#interactivos">Elementos Interactivos</a></li>
+      <li><a href="#audio-video">Audio y Video</a></li>
+      <li><a href="#iframes">Iframes o marcos flotantes</a></li>
+      <li><a href="#formularios">Formularios</a></li>
+      <li><a href="#atributos">Data Attributes</a></li>
+      <li><a href="#seo">Metaetiquetas para SEO y móviles</a></li>
+      <li><a href="#rrss">Metaetiquetas para Redes Sociales</a></li>
+      <li><a href="#accesibilidad">Accesibilidad Web</a></li>
+    </ul>
+
+    <hr />
+    <h3 id="encabezados">Encabezados HTML</h3>
+    <hr />
+    <h1>Encabezado de Nivel 1 - Cada html sólo puede tener 1 h1</h1>
+    <h2>Encabezado de Nivel 2 - h2</h2>
+    <h3>Encabezado de Nivel 3 - h3</h3>
+    <h4>Encabezado de Nivel 4 - h4</h4>
+    <h5>Encabezado de Nivel 5 - h5</h5>
+    <h6>Encabezado de Nivel 6 - h6</h6>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <!-- h3#basicos{Etiquetas de Texto Básicas} -->
+    <h3 id="basicos">Etiquetas de Texto Básicas</h3>
+    <hr />
+    <!-- p>Lorem -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut dolore
+      consectetur fuga ipsam vel ex ipsum ab alias, quasi quisquam odit iste ea.
+      Temporibus qui aspernatur, magnam enim ducimus architecto?
+    </p>
+    <!-- p{Super índice: E = mc}>sup{2} -->
+    <p>Super índice: E = mc<sup>2</sup></p>
+    <!-- p{Sub índice: H}>sub{2}+{O} -->
+    <p>Sub índice: H<sub>2</sub>O</p>
+    <!-- mark{Marcado de texto} -->
+    <mark>Marcado de texto</mark>
+    <!-- p>small{Texto pequeño} -->
+    <p><small>Texto pequeño</small></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="semanticos">Etiquetas de Texto Semánticas</h3>
+    <hr />
+    <!-- p>strong{Este texto es importante. }+em{Este texto hace énfasis} -->
+    <p>
+      <strong>Este texto es importante. </strong
+      ><em>Este texto hace énfasis</em>
+    </p>
+    <blockquote>Yo sólo sé, que no se nada</blockquote>
+    <cite>Sócrates</cite>
+    <br />
+    <br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="saltos">Etiquetas de Saltos</h3>
+    <hr />
+    <!-- Usamos la etiqueta <br /> para hacer un salto de línea -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+      Dolore quod illum laborum, eveniet enim architecto molestias vel placeat
+      nulla mollitia quidem, est, adipisci dolorem!<br />
+      Unde ipsa labore omnis non accusamus.
+    </p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="formateo">Etiquetas de Formateo</h3>
+    <hr />
+    <!-- (p>pre)+(p>code)+(p>pre>code) -->
+    <p>
+      <pre>Tareas por hacer:
+    - HTML
+      - Terminar las secciones de este curso.
+      - Editar en un sólo Video
+    - CSS
+      - Comenzar CSS
+      - Editar en un sólo Video</pre>
+    </p>
+    <p><code>Este texto está en formato de código</code></p>
+    <p>
+      <pre>
+        <code>
+          import React from "react";
+          import Title from "./Title";                  
+          function App {
+            return &lt;Title />
+          }
+        </code>
+      </pre>
+    </p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="estructurales">Etiquetas Semánticas Estructurales</h3>
+    <hr />
+    <div>div - Es una etiqueta estructural pero que no tiene semántica</div><br />
+    <header>header - Cabecera de un sitio web o de una sección</header><br />
+    <main>main - Define la sección principal del documento, sólo puede existir una etiqueta main por documento</main><br />
+    <footer>footer - Pie de página de un sitio web o de una sección</footer><br />
+    <nav>nav - Representa una navegación</nav><br />
+    <article>article - Representa un contenido dependiente de una sección</article><br />
+    <aside>aside - Representa contenido complementario o secundario</aside><br />
+    <section>section - Representa una sección de contenido genérico</section><br />
+    <address>address - Representa una información de contacto</address><br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="bloque-linea">Etiquetas de Bloque VS Etiquetas de Línea</h3>
+    <hr />
+    <p>La etiqueta de bloque por excelencia es la div, una etiqueta de bloque es aquella que genera saltos de línea con sus etiquetas hermanas.</p>
+    <p>La etiqueta de línea por excelencia es la <span>span</span>, una etiqueta de línea sólo ocupa el espacio necesario que tiene su contenido. <span>Hola, soy otra span.</span></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="estilos">Estilos CSS en HTML</h3>
+    <hr />
+    <p>Cascading Style Sheets: Lenguaje de formateo de HTML, no se considera un lenguaje de programación, sólo de maquetación.</p>
+    <p>Normalmente se implementa en hojas de estilo externas vinculadas al documento HTML. En ocasiones podemos construirlo dentro de la etiqueta <em>&lt;style></em> en el head del documento o <span style="background-color: aqua; font-family: 'Times New Roman', Times, serif;">en línea dentro de la etiqueta.</span></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="scripts">Scripts en HTML</h3>
+    <hr />
+    <p>Para incluir JavaScript y dar funcionalidades al documento HTML usaremos la etiqueta &lt;script>. Esta etiqueta puede ir en el head del documento o dentro del body. Si la incluimos en el body es preferible que esté al final del mismo.</p>
+    <p>La etiqueta &lt;script> puede contener JavaScript o vincular un archivo externo de JavaScript.</p>
+    <button onclick="abreAlerta();">Abrir Alert</button>
+    <br />
+    <br />
+    <span onmouseover="otraAlerta();"><strong>Abre otra ventana al pasar sobre este texto</strong></span>
+    <br />  
+    <br />  
+    <a href="javascript: window.alert('Otra forma más');">Abrir otra ventana de JavaScript</a>
+    <br />
+    <br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="imagenes">Imágenes</h3>
+    <hr />
+    <p>En HTML podemos utilizar diferentes tipos de imagen dependiendo de su compresión. Sin pérdida de calidad: gif y png, o con pérdida de calidad como jpg.</p>
+    <p><b>GIF</b>: formato sin pérdida con capacidad para comprimir hasta 256 colores, válido pra tintas planas, logotipos, etc. Acepta animaciones.</p>
+    <p><b>PNG-8</b>: Igual que GIF, pero su ratio de compresión es mejor. No acepta animaciones.</p>
+    <p><b>JPG</b>: formato perfecto para cautricomías e imagen fotográfica, pero tiene pérdida de calidad.</p>
+    <p><b>PNG-24</b>: formato perfecto para fotografías y transparencias a color real, tiene muy poca pérdida de calidad.</p>
+    <p><b>SVG</b>: formato de imagen vectorial, sin pérdida, y la más recomendable para logotipos y pictogramas</p>
+    <img src="./img/periodic-table-of-html-elements.png" alt="Tabla periódica de HTML" />
+    <img src="./img/background.jpg" alt="En la nieve" />
+    <img src="./img/this-is-fine.gif" alt="This is fine meme" />
+    <img src="./img/mozilla-firefox.svg" alt="Mozilla Firefox Logo">
+    <!-- Las siguientes líneas de código son la imagen fox-svgrepo-com.svg -->
+    <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 440.899 440.899" style="enable-background:new 0 0 440.899 440.899;" xml:space="preserve" width="512" height="512">
+<g>
+	<g>
+		<path style="fill:#FF9500;" d="M316.73,335.127c43.01,0,77.878-34.867,77.878-77.877v-62.152c0-28.842,19.65-53.088,46.292-60.1    c-11.112-22.113-33.989-37.297-60.424-37.297c-36.764,0-66.651,29.354-67.557,65.896h-0.043v93.652    c0,21.522-17.448,38.969-38.97,38.969c-13.067,0-24.624-6.438-31.694-16.307C251.918,311.867,281.603,335.127,316.73,335.127z"/>
+		<path style="fill:#D8D2C4;" d="M380.476,97.701c-29.021,0-53.743,18.297-63.32,43.976c8.007,29.934,35.305,51.982,67.764,51.982    c3.304,0,6.551-0.246,9.733-0.688c0.939-27.9,20.264-51.137,46.247-57.975C429.787,112.885,406.911,97.701,380.476,97.701z"/>
+		<path style="opacity:0.2;fill:#222222;" d="M322.771,271.219c-2.533-8.639-5.863-16.939-9.895-24.822v10.853    c0,21.522-17.448,38.969-38.97,38.969c-13.067,0-24.624-6.438-31.694-16.307c9.707,31.955,39.392,55.215,74.519,55.215    c10.257,0,20.041-2.002,29.009-5.605v-5.869C345.739,302.949,336.884,284.283,322.771,271.219z"/>
+	</g>
+	<g>
+		<path style="fill:#FF9500;" d="M131.331,258.99c-11.102,0-20.103,9-20.103,20.104v75.186H96.552    c-8.458,0-15.313,6.857-15.313,15.314c0,8.457,6.856,15.314,15.313,15.314h54.882V279.094    C151.434,267.99,142.433,258.99,131.331,258.99z"/>
+		<path style="opacity:0.2;fill:#222222;" d="M131.331,258.99c-11.102,0-20.103,9-20.103,20.104v75.186H96.552    c-8.458,0-15.313,6.857-15.313,15.314c0,8.457,6.856,15.314,15.313,15.314h54.882V279.094    C151.434,267.99,142.433,258.99,131.331,258.99z"/>
+	</g>
+	<path style="fill:#FF9500;" d="M184.919,178.164h-52.031v206.744h185.449v-73.326C318.336,237.897,258.603,178.164,184.919,178.164   z"/>
+	<path style="fill:#FF9500;" d="M184.919,178.164h-52.031v206.744h185.449v-73.326C318.336,237.897,258.603,178.164,184.919,178.164   z"/>
+	<path style="fill:#FF9500;" d="M184.919,178.164h-52.031v206.744h185.449v-73.326C318.336,237.897,258.603,178.164,184.919,178.164   z"/>
+	<path style="opacity:0.2;fill:#222222;" d="M265.985,262.395c-33.83,0-61.255,27.426-61.255,61.258c0,11.16,3,21.615,8.215,30.627   h-12.058c-8.458,0-15.314,6.857-15.314,15.314c0,8.457,6.856,15.314,15.314,15.314h126.354v-61.256   C327.241,289.82,299.816,262.395,265.985,262.395z"/>
+	<path style="opacity:0.2;fill:#222222;" d="M161.06,258.99c-11.103,0-20.103,9-20.103,20.104v75.186h-8.069v30.629h48.275V279.094   C181.162,267.99,172.162,258.99,161.06,258.99z"/>
+	<g>
+		<g>
+			<path style="fill:#FF9500;" d="M132.394,102.213c-4.433,2.82-4.191,7,0.535,9.291l80.032,38.787     c4.727,2.293,8.158-0.109,7.625-5.334l-8.508-83.305c-0.533-5.225-4.597-7.193-9.028-4.373L132.394,102.213z"/>
+			<polygon style="fill:#D8D2C4;" points="198.971,124.311 195.009,85.502 162.09,106.436    "/>
+			<path style="opacity:0.2;fill:#222222;" d="M203.05,57.279l-70.656,44.934c-4.433,2.82-4.191,7,0.535,9.291l40.016,19.395     l36.081-74.449C207.39,55.656,205.265,55.867,203.05,57.279z"/>
+		</g>
+		<g>
+			<path style="fill:#FF9500;" d="M109.819,102.213c4.433,2.82,4.191,7-0.535,9.291l-80.032,38.787     c-4.727,2.293-8.158-0.109-7.625-5.334l8.508-83.305c0.533-5.225,4.597-7.193,9.028-4.373L109.819,102.213z"/>
+			<polygon style="fill:#D8D2C4;" points="43.242,124.311 47.204,85.502 80.123,106.436    "/>
+			<path style="opacity:0.2;fill:#222222;" d="M33.187,56.449c0.001,0,0,0,0.002-0.002c-1.638,0.793-2.788,2.592-3.054,5.205     l-8.508,83.305c-0.533,5.225,2.898,7.627,7.625,5.334l40.016-19.393L33.187,56.449z"/>
+		</g>
+		<path style="fill:#FF9500;" d="M121.106,93.338C61.256,93.338,11.351,135.902,0,192.41c41.564,8.998,77.26,33.746,100.516,67.697    c0.008,0.01,0.016,0.008,0.023,0.02c4.332,6.779,11.925,11.275,20.568,11.275c8.636,0,16.224-4.49,20.558-11.26    c0.007-0.012,0.013-0.01,0.02-0.018c23.255-33.959,58.955-58.715,100.527-67.715C230.861,135.902,180.956,93.338,121.106,93.338z"/>
+		<path style="fill:#D8D2C4;" d="M44.218,120.184C21.875,137.975,5.838,163.348,0,192.41c41.564,8.998,77.26,33.746,100.516,67.697    c0.008,0.01,0.016,0.008,0.023,0.02c1.284,2.01,2.859,3.811,4.658,5.361c0.098-2.48,0.162-4.969,0.162-7.473    C105.358,203.354,81.77,154.203,44.218,120.184z"/>
+		<path style="fill:#D8D2C4;" d="M197.993,120.184c22.343,17.791,38.381,43.164,44.218,72.227    c-41.564,8.998-77.26,33.746-100.516,67.697c-0.007,0.01-0.015,0.008-0.023,0.02c-1.283,2.01-2.858,3.811-4.657,5.361    c-0.098-2.48-0.163-4.969-0.163-7.473C136.853,203.354,160.443,154.203,197.993,120.184z"/>
+		<path style="fill:#333E48;" d="M85.471,241.281c5.457,5.893,10.492,12.18,15.044,18.826c0.008,0.01,0.016,0.008,0.023,0.02    c4.332,6.779,11.925,11.275,20.568,11.275c8.636,0,16.224-4.49,20.558-11.26c0.007-0.012,0.013-0.01,0.02-0.018    c4.556-6.652,9.595-12.945,15.057-18.844H85.471z"/>
+		<path style="opacity:0.2;fill:#222222;" d="M0,192.41c41.564,8.998,77.26,33.746,100.516,67.697    c0.008,0.01,0.016,0.008,0.023,0.02c4.332,6.779,11.925,11.275,20.568,11.275V93.338C61.256,93.338,11.351,135.902,0,192.41z"/>
+		<circle style="fill:#333E48;" cx="179.789" cy="173.137" r="7.463"/>
+		<circle style="fill:#333E48;" cx="62.424" cy="173.137" r="7.463"/>
+	</g>
+	<path style="fill:#FFA21F;" d="M274.267,262.395c-33.831,0-61.255,27.426-61.255,61.258c0,11.16,3,21.615,8.215,30.627h-12.059   c-8.458,0-15.313,6.857-15.313,15.314c0,8.457,6.856,15.314,15.313,15.314h126.354v-61.256   C335.523,289.82,308.098,262.395,274.267,262.395z"/>
+	<path style="fill:#FFA21F;" d="M169.341,258.99c-11.102,0-20.102,9-20.102,20.104v75.186H133.54   c-8.457,0-15.313,6.857-15.313,15.314c0,8.457,6.856,15.314,15.313,15.314h55.903V279.094   C189.444,267.99,180.444,258.99,169.341,258.99z"/>
+</g>
+</svg>
+    <!-- Fin de la imagen -->
+    <br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="figure">Figure y Picture</h3>
+    <hr />
+    <h4>Figure</h4>
+    <figure>
+      <img src="./img/periodic-table-of-html-elements.png" style="width: 300px;"  alt="Tabla periódica de HTML">
+      <figcaption>Tabla Periódica de Elementos HTML</figcaption>
+    </figure>
+    <h4>Picture</h4>
+    <!-- el Picture se utiliza para aplicar varias resoluciones de una misma imagen (en el ejmplo son distintas para ver que realmente cambian). Dentro del picture la imagen por defecto es la que va la última, y va de mayor ancho a menor -->
+    <picture>
+      <source media="(min-width: 768px)" srcset="./img/img_pink_flowers.jpg">
+      <source media="(min-width: 480px)" srcset="./img/img_white_flower.jpg">
+      <img src="./img/img_orange_flowers.jpg" alt="imagen para dispositivos móviles">
+    </picture>
+    <br />
+    <br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="ordenadas">Listas Ordenadas</h3>
+    <hr />
+    <!-- ol>li{Opción $}*5 -->
+    <ol>
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ol>
+    <ol reversed start="2">
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ol>
+    <ol type="I">
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ol>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="desordenadas">Listas Desordenadas</h3>
+    <hr />
+    <ul>
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ul>
+    <ul type="circle">
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ul>
+    <ul type="square">
+      <li>Opción 1</li>
+      <li>Opción 2</li>
+      <li>Opción 3</li>
+      <li>Opción 4</li>
+      <li>Opción 5</li>
+    </ul>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="definicion">Listas de Definición</h3>
+    <hr />
+    <!-- dl>dt{HTML}+dd{Es un lenguaje de marcado que define el contenido de la web} -->
+     <dl>
+      <dt>HTML</dt>
+      <dd>Es un lenguaje de marcado que define el contenido de la web</dd>
+      <br />
+      <dt>CSS</dt>
+      <dd>Es un lenguaje de definición que da estilos al código HTML</dd>
+      <br />
+      <dt>JavaScript</dt>
+      <dd>Es el lenguaje de la web</dd>
+     </dl>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="tablas">Tablas</h3>
+    <hr />
+    <!-- Una tabla se compone de un header (thead), un body (tbody) y un footer (tfoot) -->
+    <!-- table>(thead>tr>th[colspan=4])+(tbody>(tr>th*4)+((tr>th+td*3)*3))+(tfoot>tr>th+(td*3)) -->
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">Cabecera de Tabla</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>Cabecera de columna 1</th>
+          <th>Cabecera de columna 2</th>
+          <th>Cabecera de columna 3</th>
+        </tr>
+        <tr>
+          <th>Cabecera de fila 1</th>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+        </tr>
+        <tr>
+          <th>Cabecera de fila 2</th>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+        </tr>
+        <tr>
+          <th>Cabecera de fila 3</th>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+          <td contenteditable>Contenido de celda</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Resumen de datos</th>
+          <td>Resumen columna 1</td>
+          <td>Resumen columna 2</td>
+          <td>Resumen columna 3</td>
+        </tr>
+      </tfoot>
+    </table>
+    <br />
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="enlaces">Enlaces o Hipervínculos</h3>
+    <hr />
+    <!-- p>a[href="hello-world.html"]{Abrir la página hello-world} -->
+    <p><a href="hello-world.html">Abrir la página hello-world sustituyendo esta página</a></p>
+    <!-- El atributo target determina si queremos que cada vez que se clicka, el contenido se muestra siempre en la misma ventana nueva abierta. El valor del atributo es el que nosotros queramos (similar a una id) y queda asociado a la ventana nueva. -->
+    <p><a href="hello-world.html" target="new">Abrir la página hello-world en una ventana nueva</a></p>
+    <p><a href="https://htmlreference.io/" target="new">Abrir contenido a HTML Reference</a></p>
+    <p><a href="https://www.w3schools.com/html/html_links.asp" target="new">Ver enlaces con HTML a w3.schools.com</a></p>
+    <p><a href="mailto:nombre@dominio.com">Enlace a correo electrónico</a></p>
+    <p><a href="tel:34555555555">Enlace a teléfono</a></p>
+    <p><a href="https://api.whatsapp.com/send?phone=34555555555&text=Hola">Envía un mensaje con WhatsApp</a></p>
+    <p><a href="./media/emmet-cheat-sheet.pdf" download>Decargar Cheat Sheet de Emmet</a></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="interactivos">Elementos Interactivos</h3>
+    <hr />
+    <!-- Los atributos de una etiqueta que empiezan por 'on' corresponden a elementos interactivos -->
+    <button type="button" onclick="alert('Hola!!!');">Si haces click aquí te saludo</button>
+    <br />
+    <br />
+    <!-- La etiqueta <details> crea un acordeón -->  
+    <details>
+      <summary>Título del contenido del acordeón</summary>
+      <!-- article>(h4{Título del artículo})+(img[src="img/html5.png"])+(p>Lorem) -->
+      <article>
+        <h4>Título del artículo</h4>
+        <img src="./img/html5.png" alt="HTML5 Logo">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam nihil esse quasi laboriosam, doloremque commodi voluptatum alias! Pariatur a laborum nam, quam, accusantium atque autem veniam officia nulla ratione doloremque!</p>
+       </article>
+    </details>
+    <br />
+    <!-- sin imagen: details>(summary{Artículo 2})+(article>(h4{Título artículo 2})+(p>Lorem)) -->
+    <details>
+      <summary>Artículo 2</summary>
+      <article>
+        <h4>Título artículo 2</h4>
+        <img src="./img/Android_robot.svg.png" alt="Android Logo">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae odit labore repellendus. Officiis saepe, iusto quidem aspernatur non perferendis a itaque dolorem dicta rerum quod odit pariatur consectetur molestiae debitis!</p>
+      </article>
+    </details>
+    <br />
+    <!-- Los popup se sobreponen al contenido mostrado en el html -->
+    <dialog open>
+      Contenido tipo PopUp. Podemos abrirlo o cerrarlo con JavaScript.
+    </dialog>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="audio-video">Audio y Video</h3>
+    <hr />
+    <p>Las etiquetas &lt;audio> y &lt;video> nacen con HTML5, antes no existían, y la API específica de JavaScript desarrollada por Mozilla. <a href="./audio-video/audio_video.html">Ver más sobre audio y vídeo.</a></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="iframes">Iframes o marcos flotantes</h3>
+    <hr />
+    <p>El elemento HTML &lt;iframe> (de inline frame) representa un contexto de navegación anidado, el cual permite incrustrar otra página HTML en la página actual. <a href="./iframes/iframes.html">Ver más sobre iframes</a></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="formularios">Formularios</h3>
+    <hr />
+    <p>El elemento HTML &lt;form> permite la recogida de datos para su posterior gestión por lenguajes dinámicos. Dispone de elementos específicos para cada tipo de dato que queramos recoger o gestionar. HTML no tiene capacidad para enviar esos datos ni para recogerlos. <a href="./formularios/formularios.html">Ver más sobre formularios</a></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="atributos">Data Attributes</h3>
+    <hr />
+    <p>El atributo <strong>data</strong> permite disponer de atributos específicos pra programación en diferentes lenguajes de programación, especialmente JavaScript.</p>
+    <!-- ul>li[data-id="$"][data-name]*4 -->
+     <ul>
+      <figcaption>Estaciones del año, con data-name de identificación</figcaption>
+      <li data-id="1" data-name="spring">Primavera</li>
+      <li data-id="2" data-name="summer">Verano</li>
+      <li data-id="3" data-name="autumn">Otoño</li>
+      <li data-id="4" data-name="winter">Invierno</li>
+     </ul>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="seo">Metaetiquetas para SEO y móviles</h3>
+    <hr />
+    <p><small>Metaetiquetas situadas en el &lt;head> del documento para garantizar posicionamiento web y compatibilidades (Visibles en el header del código).</small></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="rrss">Metaetiquetas para Redes Sociales</h3>
+    <hr />
+     <p><small>Metaetiquetas situadas en el &lt;head> del documento para mejorar el posicionamiento y compatibilidad con las redes sociales, como Facebook y Twitter. (Visibles en el código de la cabecera)</small></p>
+    <a href="#inicio">Ir arriba</a>
+
+    <hr />
+    <h3 id="accesibilidad">Accesibilidad Web</h3>
+    <hr />
+    <p><small>Para garantizar el acceso a la web a personas con diferencias funcionales, HTML incorpora las etiquetas semánticas y atributos específicos para facilitar dicho acceso.</small></p>
+    <!-- El orden de los tabindex que hay a continuación es el correcto, es para ver que podemos indicar el orden en que se desplaza el tabulador -->
+    <h4 role="title">Las estaciones del año</h4>
+    <ul role="list">
+      <li tabindex="1" role="listitem">Primavera</li>
+      <li tabindex="2" role="listitem">Verano</li>
+      <li tabindex="4" role="listitem">Otoño</li>
+      <li tabindex="3" role="listitem">Invierno</li>
+    </ul>
+    <p>
+      <a href="https://web.dev/accessible/" target="new"> https://web.dev/accessible/</a> <br>
+      <a href="https://html5accessibility.com/" target="new">https://html5accessibility.com/</a><br>
+      <a href="https://www.w3.org/blog/news/archives/8889" target="new">https://www.w3.org/blog/news/archives/8889</a> <br>
+    </p>
+    <a href="#inicio">Ir arriba</a>
+
+    <!-- Los scripts que se integran en el body body se ponen al final, tanto el código como si es un enlace externo, como es el caso -->
+    <script src="./js/javascript.js"></script>
+  </body>
+</html>
