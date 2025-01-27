@@ -107,19 +107,25 @@
         <p class="pt-3 pb-3">
           <strong>Resposta: </strong><span id="answer_exercise_five"></span>
         </p>
-        <button class="btn btn-primary me-2" onclick="exerciseFiveAdd()">
+        <button class="btn btn-primary me-2 mb-3" onclick="exerciseFiveAdd()">
           Afegir persona
         </button>
-        <button class="btn btn-primary me-2" onclick="exerciseFiveShow()">
+        <button class="btn btn-primary me-2 mb-3" onclick="exerciseFiveShow()">
           Veure tots
         </button>
-        <button class="btn btn-primary me-2" onclick="exerciseFiveDeleteLast()">
+        <button
+          class="btn btn-primary me-2 mb-3"
+          onclick="exerciseFiveDeleteLast()"
+        >
           Eliminar l'ùltim
         </button>
-        <button class="btn btn-primary me-2" onclick="exerciseFiveDeleteAll()">
+        <button
+          class="btn btn-primary me-2 mb-3"
+          onclick="exerciseFiveDeleteAll()"
+        >
           Esborrar tots
         </button>
-        <button class="btn btn-warning" onclick="clean()">Neteja</button>
+        <button class="btn btn-warning mb-3" onclick="clean()">Neteja</button>
       </article>
       <article class="container border border-black mt-5 p-3">
         <h3>Exercici 6</h3>
@@ -128,6 +134,13 @@
           d'un restaurant, amb 5 primers, 5 segons i 5 postres. Formateu el
           vostre aspecte amb estils en línia des de javascript.
         </p>
+        <p class="pt-3 pb-3">
+          <strong>Resposta: </strong><span id="answer_exercise_six"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseSix()">
+          Executa
+        </button>
+        <button class="btn btn-warning" onclick="clean()">Neteja</button>
       </article>
       <article class="container border border-black mt-5 mb-5 p-3">
         <h3>Exercici 7</h3>
@@ -135,6 +148,34 @@
           Escriu un html que ens permeti entrar tots els plats d'un menú
           setmanal d'un restaurant, amb 5 primers, 5 segons i 5 postres.
         </p>
+        <select name="day" id="input_exercise_seven_day">
+          <option value="dilluns">Dilluns</option>
+          <option value="dimarts">Dimarts</option>
+          <option value="dimecres">Dimecres</option>
+          <option value="dijous">Dijous</option>
+          <option value="divendres">Divendres</option>
+        </select>
+        <input
+          id="input_exercise_seven_starter"
+          type="text"
+          placeholder="Primer plat"
+        />
+        <input
+          id="input_exercise_seven_main"
+          type="text"
+          placeholder="Segon plat"
+        />
+        <input
+          id="input_exercise_seven_dessert"
+          type="text"
+          placeholder="Postre"
+        />
+        <p class="pt-3 pb-3">
+          <strong>Resposta: </strong><span id="answer_exercise_seven"></span>
+        </p>
+        <button class="btn btn-primary me-2" onclick="exerciseSeven()">
+          Executa
+        </button>
       </article>
       <script src="./js/ejercicios_T3_2.js"></script>
     </main>

@@ -218,23 +218,6 @@ function closeWindow() {
 }
 
 function clean() {
-  /* inputExOne.value = "";
-  answerExOne.innerHTML = "";
-  inputExTwo.value = "";
-  answerExTwo.innerHTML = "";
-  inputExThreePrice.value = "";
-  inputExThreeVAT.value = "";
-  answerExThree.innerHTML = "";
-  inputExFourFirst.value = "";
-  inputExFourSecond.value = "";
-  answerExFour.innerHTML = "";
-  inputExFive.value = "";
-  answerExfive.innerHTML = "";
-  answerExSix.innerHTML = "";
-  inputExNine.value = "";
-  answerExNine.innerHTML = "";
-  document.body.style.backgroundColor = "white"; */
-
   let limpia = document.querySelectorAll("input");
   for (let i = 0; i < 8; i++) {
     limpia[i].value = "";
