@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Crear elementos con el DOM</title>
+    <link
+      rel="stylesheet"
+      href="../02_uso_frameworks/w3css/source/css/w3css.css"
+    />
+  </head>
+  <body>
+    <main class="w3-container">
+      <h2>Crear elementos con el DOM</h2>
+      <p>Posicion:</p>
+      <input type="number" id="posicion" />
+      <p>Texto a incluir:</p>
+      <input type="text" id="valor" />
+      <input id="crear" type="button" value="Crear" />
+      <div id="contenedorPadre"></div>
+    </main>
+    <script>
+      const posicion = document.querySelector("#posicion");
+      const texto = document.querySelector("#valor");
+      const padre = document.querySelector("#contenedorPadre");
+
+      const creaParrafos = () => {
+        let pos = posicion.value;
+        let text = texto.value;
+        let hijos = padre.children.length;
+
+        const elementoNodo = document.createElement("p");
+        let nodoTexto = document.createTextNode(text);
+        let id = hijos + 1;
+        elementoNodo.appendChild(nodoTexto);
+        elementoNodo.setAttribute("id", id);
+
+        if (hijos === 0 && text !== "") {
+          padre.appendChild(elementoNodo);
+        } else if (text == "") {
+          alert("Introduce un texto");
+          texto.focus();
+        } else {
+          if (pos) {
+            if (pos <= hijos) {
+              for (let i = 0; i < hijos; i++) {
+                if (i === pos + 1) {
+                  let actual = document.querySelector(padre.children[i]);
+                  padre.insertBefore(elementoNodo, actual);
+                }
+              }
+            } else if (parseInt(parseInt(pos) - hijos) <= 1) {
+              padre.appendChild(elementoNodo);
+            }
+          } else {
+            alert("introduce la posición");
+            posicion.focus();
+          }
+        }
+      };
+
+      let crear = document.querySelector("#crear");
+      crear.addEventListener("click", creaParrafos);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Añadir elementos con DOM</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../02_uso_frameworks/w3css/source/css/w3css.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      #texto_nuevo,
+      #borrar_nuevos,
+      #less {
+        display: none;
+        /* margin-bottom: 10px; */
+      }
+
+      .show {
+        display: block !important;
+      }
+
+      .show_button {
+        display: inline-block !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="w3-container">
+      <h2>Clicka sobre el boton para añadir mas elementos a la lista</h2>
+      <ul id="lista" class="w3-ul w3-lime w3-hoverable">
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Consectetuer adipiscing elit</li>
+        <li>Sed mattis enim vitae orci</li>
+        <li>Phasellus libero</li>
+        <li>Maecenas nisl arcu</li>
+      </ul>
+
+      <input type="text" class="" name="texto_nuevo" id="texto_nuevo" />
+
+      <input
+        id="more"
+        type="button"
+        class="w3-button w3-white w3-border"
+        value="Añadir elemento"
+      />
+      <input
+        id="less"
+        type="button"
+        class="w3-button w3-white w3-border"
+        value="Borrar elemento"
+      />
+
+      <button id="borrar_nuevos">Borra todo lo nuevo</button>
+    </div>
+    <script>
+      let cont = 0;
+      const more = document.querySelector("#more");
+      const less = document.querySelector("#less");
+      const texto_nuevo = document.querySelector("#texto_nuevo");
+      const borrar_nuevos = document.querySelector("#borrar_nuevos");
+      const lista = document.querySelector("#lista");
+
+      const creaElemento = () => {
+        texto_nuevo.classList.toggle("show");
+        texto_nuevo.focus();
+
+        if (texto_nuevo.value.length > 0) {
+          let elem = document.createElement("li");
+          let content = document.createTextNode(texto_nuevo.value);
+
+          elem.appendChild(content);
+          lista.appendChild(elem);
+          texto_nuevo.value = "";
+          cont++;
+        }
+
+        if (cont > 0) {
+          borrar_nuevos.classList.add("show_button");
+          less.classList.add("show_button");
+        }
+      };
+
+      /* const borraHijo = () => {
+        if (cont > 0) {
+          lista.removeChild(lista.lastChild);
+          cont--;
+        }
+
+        if (cont == 0) {
+          less.classList.remove("show_button");
+          borrar_nuevos.classList.remove("show_button");
+        }
+      }; */
+
+      more.addEventListener("click", creaElemento);
+      less.addEventListener("click", () => {
+        if (cont > 0) {
+          lista.removeChild(lista.lastChild);
+          cont--;
+        }
+
+        if (cont == 0) {
+          less.classList.remove("show_button");
+          borrar_nuevos.classList.remove("show_button");
+        }
+      });
+
+      borrar_nuevos.addEventListener("click", () => {
+        if (cont > 0) {
+          for (let y = cont; y > 0; y--) {
+            lista.removeChild(lista.lastChild);
+          }
+          cont = 0;
+          borrar_nuevos.classList.remove("show_button");
+          less.classList.remove("show_button");
+        }
+      });
+    </script>
+  </body>
+</html>

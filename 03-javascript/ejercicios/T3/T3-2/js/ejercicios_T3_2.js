@@ -232,16 +232,28 @@ function exerciseSix() {
   answerExSix.innerHTML = result;
 }
 
-function exerciseSeven() {
-  const menu = {
-    dilluns: { primer: "", segon: "", postre: "" },
-    dimarts: { primer: "", segon: "", postre: "" },
-    dimecres: { primer: "", segon: "", postre: "" },
-    dijous: { primer: "", segon: "", postre: "" },
-    divendres: { primer: "", segon: "", postre: "" },
-  };
+const menu = {
+  dilluns: { primer: "", segon: "", postre: "" },
+  dimarts: { primer: "", segon: "", postre: "" },
+  dimecres: { primer: "", segon: "", postre: "" },
+  dijous: { primer: "", segon: "", postre: "" },
+  divendres: { primer: "", segon: "", postre: "" },
+};
 
+let monday = "";
+let tuesday = "";
+let wednesday = "";
+let thursday = "";
+let friday = "";
+let result = "";
+
+function exerciseSeven() {
   let option = inputExSevenDay.value;
+  let deleteButtonMonday = `<button class="btn btn-warning" onclick="deleteMondayExSeven()">Esborra</button>`;
+  let deleteButtonTuesday = `<button class="btn btn-warning" onclick="deleteTuesdayExSeven()">Esborra</button>`;
+  let deleteButtonWednesday = `<button class="btn btn-warning" onclick="deleteWednesdayExSeven()">Esborra</button>`;
+  let deleteButtonThursday = `<button class="btn btn-warning" onclick="deleteThursdayExSeven()">Esborra</button>`;
+  let deleteButtonFriday = `<button class="btn btn-warning" onclick="deleteFridayExSeven()">Esborra</button>`;
 
   switch (option) {
     case "dilluns":
@@ -271,46 +283,117 @@ function exerciseSeven() {
       break;
   }
 
-  let result = `<table class="table table-striped">
+  if (menu.dilluns.primer) {
+    monday = `<th>Dilluns</th>
+      <td>${menu.dilluns.primer}</td>
+      <td>${menu.dilluns.segon}</td>
+      <td>${menu.dilluns.postre}</td>
+      <td>${deleteButtonMonday}</td>`;
+  }
+
+  if (menu.dimarts.primer) {
+    tuesday = `<th>Dimarts</th>
+      <td>${menu.dimarts.primer}</td>
+      <td>${menu.dimarts.segon}</td>
+      <td>${menu.dimarts.postre}</td>
+      <td>${deleteButtonTuesday}</td>`;
+  }
+
+  if (menu.dimecres.primer) {
+    wednesday = `<th>Dimecres</th>
+      <td>${menu.dimecres.primer}</td>
+      <td>${menu.dimecres.segon}</td>
+      <td>${menu.dimecres.postre}</td>
+      <td>${deleteButtonWednesday}</td>`;
+  }
+
+  if (menu.dijous.primer) {
+    thursday = `<th>Dijous</th>
+      <td>${menu.dijous.primer}</td>
+      <td>${menu.dijous.segon}</td>
+      <td>${menu.dijous.postre}</td>
+      <td>${deleteButtonThursday}</td>`;
+  }
+
+  if (menu.divendres.primer) {
+    friday = `<th>Divendres</th>
+      <td>${menu.divendres.primer}</td>
+      <td>${menu.divendres.segon}</td>
+      <td>${menu.divendres.postre}</td>
+      <td>${deleteButtonFriday}</td>`;
+  }
+  console.log(resultTableExSeven());
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+
+function deleteMondayExSeven() {
+  monday = "";
+  menu.dilluns.primer = "";
+  menu.dilluns.segon = "";
+  menu.dilluns.postre = "";
+
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+function deleteTuesdayExSeven() {
+  tuesday = "";
+  menu.dimarts.primer = "";
+  menu.dimarts.segon = "";
+  menu.dimarts.postre = "";
+
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+function deleteWednesdayExSeven() {
+  wednesday = "";
+  menu.dimecres.primer = "";
+  menu.dimecres.segon = "";
+  menu.dimecres.postre = "";
+
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+function deleteThursdayExSeven() {
+  thursday = "";
+  menu.dijous.primer = "";
+  menu.dijous.segon = "";
+  menu.dijous.postre = "";
+
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+function deleteFridayExSeven() {
+  friday = "";
+  menu.divendres.primer = "";
+  menu.divendres.segon = "";
+  menu.divendres.postre = "";
+
+  answerExSeven.innerHTML = resultTableExSeven();
+}
+
+function resultTableExSeven() {
+  result = `<table class="table table-striped">
     <tr>
       <th></th>
       <th>Primer plat</th>
       <th>Segon plat</th>
       <th>Postre</th>
+      <th>Accions</th>  
     </tr>
     <tr>
-      <th>Dilluns</th>
-      <td>${menu.dilluns.primer}</td>
-      <td>${menu.dilluns.segon}</td>
-      <td>${menu.dilluns.postre}</td>
+      ${monday}
     </tr>
     <tr>
-      <th>Dimarts</th>
-      <td>${menu.dimarts.primer}</td>
-      <td>${menu.dimarts.segon}</td>
-      <td>${menu.dimarts.postre}</td>
+      ${tuesday}
     </tr>
     <tr>
-      <th>Dimecres</th>
-      <td>${menu.dimecres.primer}</td>
-      <td>${menu.dimecres.segon}</td>
-      <td>${menu.dimecres.postre}</td>
+      ${wednesday}
     </tr>
     <tr>
-      <th>Dijous</th>
-      <td>${menu.dijous.primer}</td>
-      <td>${menu.dijous.segon}</td>
-      <td>${menu.dijous.postre}</td>
+      ${thursday}
     </tr>
     <tr>
-      <th>Divendres</th>
-      <td>${menu.divendres.primer}</td>
-      <td>${menu.divendres.segon}</td>
-      <td>${menu.divendres.postre}</td>
+      ${friday}
     </tr>
   </table>`;
 
-  answerExSeven.innerHTML = result;
+  return result;
 }
 
 function closeWindow() {
@@ -319,7 +402,7 @@ function closeWindow() {
 
 function clean() {
   let limpia = document.querySelectorAll("input");
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 9; i++) {
     limpia[i].value = "";
   }
 
