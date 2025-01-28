@@ -255,6 +255,13 @@ function exerciseSeven() {
   let deleteButtonThursday = `<button class="btn btn-warning" onclick="deleteThursdayExSeven()">Esborra</button>`;
   let deleteButtonFriday = `<button class="btn btn-warning" onclick="deleteFridayExSeven()">Esborra</button>`;
 
+  if (
+    !inputExSevenStarter.value ||
+    !inputExSevenMain.value ||
+    !inputExSevenDessert.value
+  )
+    return alert("No has omplert tots els camps");
+
   switch (option) {
     case "dilluns":
       menu.dilluns.primer = inputExSevenStarter.value;
@@ -322,8 +329,10 @@ function exerciseSeven() {
       <td>${menu.divendres.postre}</td>
       <td>${deleteButtonFriday}</td>`;
   }
-  console.log(resultTableExSeven());
   answerExSeven.innerHTML = resultTableExSeven();
+  inputExSevenStarter.value = "";
+  inputExSevenMain.value = "";
+  inputExSevenDessert.value = "";
 }
 
 function deleteMondayExSeven() {
