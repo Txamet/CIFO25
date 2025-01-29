@@ -414,21 +414,29 @@ function resultTableExSeven() {
 }
 
 function exerciseEight() {
-  let rows = inputExEightRows.value;
-  let columns = inputExEightColumns.value;
-  const table = document.createElement("table");
-  table.classList.add("table");
-  const tableRow = document.createElement("tr");
-  const tableColumn = document.createElement("td");
+  let rows = parseInt(inputExEightRows.value);
+  let columns = parseInt(inputExEightColumns.value);
+  answerExEight.innerHTML = "";
+  
+  if (rows < 1 || columns < 1 || isNaN(rows) || isNaN(columns)) return answerExEight.innerHTML = "No has omplert correctament un o ambdós camps.";
+  if (columns > 6) columns = 6;
 
-  /* for (let i = 1; i < 5; i++) {
-    tableColumn.appendChild(document.createTextNode("HOLA"));
-  } */
-  /* for (let j = 1; j < 5; j++) {
-    tableRow.appendChild(tableColumn);
+  const table = document.createElement("table");
+  table.classList.add("table-bordered");
+
+  for (let i = 0; i < rows; i++) {
+    const tableRow = document.createElement("tr");
+    for (let j = 0; j < columns; j++) {
+      const tableColumn = document.createElement("td");
+      const tableText = document.createElement("textarea");
+
+      tableColumn.appendChild(tableText);
+      tableText.classList.add("text-center");
+      tableRow.appendChild(tableColumn);
+    }
+    table.appendChild(tableRow);
   }
-  table.appendChild(tableRow); */
-  let x = answerExEight.appendChild(table);
+  answerExEight.appendChild(table);
 }
 
 function closeWindow() {
@@ -437,7 +445,7 @@ function closeWindow() {
 
 function clean() {
   let limpia = document.querySelectorAll("input");
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < limpia.length; i++) {
     limpia[i].value = "";
   }
 
