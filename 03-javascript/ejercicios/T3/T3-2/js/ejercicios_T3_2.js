@@ -41,7 +41,10 @@ function exerciseOne() {
     inputMonth.charAt(0),
     inputMonth.charAt(0).toUpperCase()
   );
+
   let indexMonth = MONTHS.indexOf(searchMonth);
+  if (!searchMonth || indexMonth === -1)
+    return (answerExOne.innerHTML = "No has introduït un mes correctament");
   let result = MONTHS.toSpliced(indexMonth + 1);
 
   let normal = result.join(", ");

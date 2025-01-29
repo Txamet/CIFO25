@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <a id="enlace_1" href="#"> Ocultar contenidos</a>
+    <a id="enlace_1" href="#"> Ocultar contenido</a>
     <br />
     <p id="contenidos_1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
         mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
@@ -27,7 +27,7 @@
         consectetuer adipiscing elit. Duis scelerisque.</p>
 
     <a id="enlace_2" href="#">Ocultar
-        contenidos</a><br />
+        contenido</a><br />
     <p id="contenidos_2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
         mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
         nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus
@@ -37,7 +37,7 @@
         odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
         consectetuer adipiscing elit. Duis scelerisque.</p>
     <a id="enlace_3" href="#">Ocultar
-        contenidos</a>
+        contenido</a>
     <br />
     <p id="contenidos_3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
         mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo
@@ -47,7 +47,36 @@
         quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper,
         odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet,
         consectetuer adipiscing elit. Duis scelerisque.</p>
-   
+   <script>
+    let id, param, mostrar_ocultar;
+    const enlace = document.querySelectorAll("a");
+
+    const muestra_oculta = (param) => {
+      id = document.querySelector("#contenidos_" + param);
+      mostrar_ocultar = document.querySelector("#enlace_" + param)
+      
+      if (id.style.display == "" || id.style.display == "block") {
+        id.style.display = "none";
+        mostrar_ocultar.innerHTML = "Mostrar contenido"
+      } else {
+        id.style.display = "block";
+        mostrar_ocultar.innerHTML = "Ocultar contenido"
+      }
+    };
+
+    window.addEventListener("load", () => {
+      for (let i = 0; i < enlace.length; i++) {
+        enlace[i].onclick = function () {
+          param = enlace[i].id;
+          if (this.id == param) {
+            param = param.substring(7, 8);
+            muestra_oculta(param);
+          }
+        }
+      }
+    });
+
+   </script>
 </body>
 
 </html>

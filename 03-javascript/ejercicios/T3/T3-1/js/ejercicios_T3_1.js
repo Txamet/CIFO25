@@ -15,12 +15,13 @@ const answerExSix = document.getElementById("answer_exercise_six");
 const selectExSeven = document.getElementById("select_exercise_seven");
 const inputExNine = document.getElementById("input_exercise_nine");
 const answerExNine = document.getElementById("answer_exercise_nine");
+let tagCountExFive = 0;
 
 function exerciseOne() {
   let input = parseFloat(inputExOne.value);
   let result = "";
 
-  if (!input || isNaN(input)) {
+  if (isNaN(input) || input === null || input === undefined) {
     result = `No has introduït un nombre`;
   } else if (input % 2 == 0) {
     result = `El número ${input} és par`;
@@ -99,12 +100,12 @@ function exerciseFour() {
 function exerciseFive() {
   let input = parseInt(inputExFive.value);
   let result = "";
-
   for (let i = 1; i <= input; i++) {
-    if (i == input) {
-      result += `codi_etiqueta_${i}`;
+    tagCountExFive++;
+    if (i === 1) {
+      result += `codi_etiqueta_${tagCountExFive}`;
     } else {
-      result += `codi_etiqueta_${i}, `;
+      result += `, codi_etiqueta_${tagCountExFive}`;
     }
   }
 
