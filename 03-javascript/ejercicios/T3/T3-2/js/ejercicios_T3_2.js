@@ -20,6 +20,11 @@ const inputExSevenDessert = document.getElementById(
 );
 const inputExSevenDay = document.getElementById("input_exercise_seven_day");
 const answerExSeven = document.getElementById("answer_exercise_seven");
+const inputExEightRows = document.getElementById("input_exercise_eight_rows");
+const inputExEightColumns = document.getElementById(
+  "input_exercise_eight_columns"
+);
+const answerExEight = document.getElementById("answer_exercise_eight");
 
 function exerciseOne() {
   const MONTHS = [
@@ -406,6 +411,24 @@ function resultTableExSeven() {
   </table>`;
 
   return result;
+}
+
+function exerciseEight() {
+  let rows = inputExEightRows.value;
+  let columns = inputExEightColumns.value;
+  const table = document.createElement("table");
+  table.classList.add("table");
+  const tableRow = document.createElement("tr");
+  const tableColumn = document.createElement("td");
+
+  /* for (let i = 1; i < 5; i++) {
+    tableColumn.appendChild(document.createTextNode("HOLA"));
+  } */
+  /* for (let j = 1; j < 5; j++) {
+    tableRow.appendChild(tableColumn);
+  }
+  table.appendChild(tableRow); */
+  let x = answerExEight.appendChild(table);
 }
 
 function closeWindow() {
