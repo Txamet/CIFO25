@@ -3,6 +3,7 @@ const m2 = document.querySelector("#mostra2");
 const error = document.querySelector("#error");
 const miedad = document.querySelector("#miedad");
 const dni = document.querySelector("#dni");
+const answer = document.querySelector("#answer");
 
 //const formu = document.forms["firstContact"];
 const formu = document.firstContact;
