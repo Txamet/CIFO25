@@ -7,9 +7,8 @@ const inputEmail = document.querySelector("#email");
 const inputDNI = document.querySelector("#dni");
 const inputAll = document.querySelectorAll("input");
 const inputConditions = document.querySelector("#conditions");
-const answer = document.querySelector("#answer")
+const answer = document.querySelector("#answer");
 const formu = document.form;
-
 
 formu.addEventListener("submit", (e) => {
   if (!inputConditions.checked) {
@@ -25,21 +24,21 @@ formu.addEventListener("submit", (e) => {
   const verifyEmail = emailValidation();
   const verifyDNI = dniValidation();
 
-  if (!verifyUser || !verifyPhone || !verifyEmail || !verifyDNI) {  
+  if (!verifyUser || !verifyPhone || !verifyEmail || !verifyDNI) {
     e.preventDefault();
     answer.innerHTML =
       "Error: Uno o más campos no han sido rellenados correctamente. Por favor, revísalos ";
     answer.style.color = "#FF0000";
     return false;
-
   } else if (verifyAge !== true) {
     e.preventDefault();
     answer.innerHTML = verifyAge;
     answer.style.color = "#FF0000";
     return false;
-
   } else {
     formu.submit();
+    answer.innerHTML = `Todos los campos han sido rellenados correctamente. Formulario enviado`;
+    answer.style.color = "green";
     return true;
   }
 });
@@ -47,23 +46,21 @@ formu.addEventListener("submit", (e) => {
 function userValidation() {
   let name = inputNombre.value;
   name = name.trim();
-  console.log(name)
+  console.log(name);
   let firstLetter = name.charAt(0);
   let numberPattern = /\d/;
   let checkFirstLetter = numberPattern.test(firstLetter);
 
   if (name.length < 3 || name.length > 20) {
-    answer.innerHTML = `Error: El nombre de usuario ${name} no cumple con el siguiente requisito: El nombre de usuario ha de tener entre 3 y 20 caracteres`;
+    answer.innerHTML = `El nombre de usuario ${name} no cumple con el siguiente requisito: El nombre de usuario ha de tener entre 3 y 20 caracteres`;
     answer.style.color = "#FF0000";
 
     return false;
-
   } else if (checkFirstLetter) {
-    answer.innerHTML = `Error: El nombre de usuario ${name} no cumple con el siguiente requisito: El nombre de usuario no puede empezar por un número`;
+    answer.innerHTML = `El nombre de usuario ${name} no cumple con el siguiente requisito: El nombre de usuario no puede empezar por un número`;
     answer.style.color = "#FF0000";
 
     return false;
-
   } else {
     answer.innerHTML = "";
     return true;
@@ -76,10 +73,9 @@ function phoneValidation() {
   let checkPhone = phonePattern.test(phone);
 
   if (!checkPhone || phone.length != 9) {
-    answer.innerHTML = `Error: El teléfono ${phone} no cumple con el siguiente requisito: El número de teléfono ha de tener 9 dígitos`;
+    answer.innerHTML = `El teléfono ${phone} no cumple con el siguiente requisito: El número de teléfono ha de tener 9 dígitos`;
     answer.style.color = "#FF0000";
     return false;
-
   } else {
     answer.innerHTML = "";
     return true;
@@ -92,10 +88,9 @@ function dayValidation() {
   let checkDay = dayPattern.test(day);
 
   if (!checkDay || day < 1 || day > 31) {
-    answer.innerHTML = `Error: el día ${day} no cumple con el siguiente requisito: El día ha de estar comprendido entre 1 y 31.`;
+    answer.innerHTML = `El día ${day} no cumple con el siguiente requisito: El día ha de estar comprendido entre 1 y 31.`;
     answer.style.color = "#FF0000";
     return false;
-
   } else {
     answer.innerHTML = "";
     return true;
@@ -106,12 +101,11 @@ function monthValidation() {
   let month = inputMes.value;
   let monthPattern = /^\d{1,2}$/;
   let checkMonth = monthPattern.test(month);
-  
+
   if (!checkMonth || month < 1 || month > 12) {
-    answer.innerHTML = `Error: el mes ${month} no cumple con el siguiente requisito: El mes ha de estar comprendido entre 1 y 12.`;
+    answer.innerHTML = `El mes ${month} no cumple con el siguiente requisito: El mes ha de estar comprendido entre 1 y 12.`;
     answer.style.color = "#FF0000";
     return false;
-
   } else {
     answer.innerHTML = "";
     return true;
@@ -122,17 +116,83 @@ function yearValidation() {
   let year = inputAno.value;
   let yearPattern = /^\d{4}$/;
   let checkYear = yearPattern.test(year);
-  
+
   if (!checkYear) {
-    answer.innerHTML = `Error: el año ${year} no cumple con el siguiente requisito: El año ha de tener 4 dígitos.`;
+    answer.innerHTML = `El año ${year} no cumple con el siguiente requisito: El año ha de tener 4 dígitos.`;
     answer.style.color = "#FF0000";
     return false;
-
   } else {
     answer.innerHTML = "";
     return true;
   }
 }
+
+function esBisiesto(year) {
+  if (year % 400 == 0) {
+    return true;
+  } else if (year % 4 == 0 && year % 100 != 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* function yearValidation() {
+  let year = inputAno.value;
+  let yearPattern = /^\d{4}$/;
+  let checkYear = yearPattern.test(year);
+  let day = inputDia.value;
+  let month = inputMes.value;
+  let birthDate = new Date(year, month, day);
+  let actualDate = new Date();
+  let actualYear = actualDate.getFullYear();
+  let bisiesto = esBisiesto(year);
+  console.log(bisiesto);
+  let myAge = Math.floor(
+    (actualDate - birthDate) / (1000 * 60 * 60 * 24) / 365
+  );
+  let result = "";
+
+  if (!checkYear) {
+    answer.innerHTML = `El año ${year} no cumple con el siguiente requisito: El año ha de tener 4 dígitos.`;
+    answer.style.color = "#FF0000";
+    return false;
+  } else if (day > 29 && month == 2 && bisiesto) {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Este mes de febrero no puede tener más de 29 días.`;
+
+    return false;
+  } else if (day > 28 && month == 2 && !bisiesto) {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Este mes de febrero no puede tener más de 28 días.`;
+
+    return false;
+  } else if (
+    day == 31 &&
+    (month == 4 || month == 6 || month == 9 || month == 11)
+  ) {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: El mes ${month} no tiene más de 30 días.`;
+
+    return false;
+  } else if (myAge < 0) {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha aún no ha ocurrido.`;
+
+    return false;
+  } else if (actualYear - year > 120) {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha es demasiado antigua, no creo que tengas más de 120 años.`;
+
+    return false;
+  } else if (myAge >= 18 && myAge < 120) {
+    return true;
+  } else {
+    answer.style.color = "#FF0000";
+    answer.innerHTML = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Has de ser mayor de edad para poder enviar el formulario.`;
+    return false;
+  }
+} */
 
 function ageValidation() {
   let day = inputDia.value;
@@ -141,42 +201,43 @@ function ageValidation() {
   let birthDate = new Date(year, month, day);
   let actualDate = new Date();
   let actualYear = actualDate.getFullYear();
+  let bisiesto = esBisiesto(year);
 
   let myAge = Math.floor(
     (actualDate - birthDate) / (1000 * 60 * 60 * 24) / 365
   );
   let result = "";
-  
-  if (day > 28 && month == 2) {
+
+  if (day > 29 && month == 2 && bisiesto) {
     answer.style.color = "#FF0000";
-    result = `Error: la fecha ${day}/${month}/${year} no cumple con el siguiente requisito: El mes de febrero no puede tener más de 28 días.`;
+    result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Este mes de febrero no puede tener más de 29 días.`;
 
     return result;
+  } else if (day > 28 && month == 2 && !bisiesto) {
+    answer.style.color = "#FF0000";
+    result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Este mes de febrero no puede tener más de 28 días.`;
 
+    return result;
   } else if (
     day == 31 &&
     (month == 4 || month == 6 || month == 9 || month == 11)
   ) {
     answer.style.color = "#FF0000";
-    result = `Error: la fecha ${day}/${month}/${year} no cumple con el siguiente requisito: El mes ${month} no tiene más de 30 días.`;
+    result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: El mes ${month} no tiene más de 30 días.`;
 
     return result;
-
   } else if (myAge < 0) {
     answer.style.color = "#FF0000";
-    result = `Error: la fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha aún no ha ocurrido.`;
+    result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha aún no ha ocurrido.`;
 
     return result;
-
   } else if (actualYear - year > 120) {
     answer.style.color = "#FF0000";
-    result = `Error: la fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha es demasiado antigua, no creo que tengas más de 120 años.`;
+    result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Esta fecha es demasiado antigua, no creo que tengas más de 120 años.`;
 
     return result;
-
   } else if (myAge >= 18 && myAge < 120) {
     return true;
-    
   } else {
     answer.style.color = "#FF0000";
     result = `La fecha ${day}/${month}/${year} no cumple con el siguiente requisito: Has de ser mayor de edad para poder enviar el formulario.`;
@@ -186,15 +247,15 @@ function ageValidation() {
 
 function emailValidation() {
   let email = inputEmail.value;
-  let emailPattern = /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/;
+  let emailPattern =
+    /[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/;
   let checkEmail = emailPattern.test(email);
 
   if (!checkEmail) {
-    answer.innerHTML = `ERROR. El email ${email} no cumple con el siguiente requisito: El formato del email no es correcto.`
+    answer.innerHTML = `El email ${email} no cumple con el siguiente requisito: El formato del email no es correcto.`;
     answer.style.color = "#FF0000";
     return false;
-
-  }else {
+  } else {
     answer.innerHTML = "";
     return true;
   }
@@ -208,7 +269,6 @@ function dniValidation() {
   let result = dni.match(dniPattern);
   let dniLetters = "TRWAGMYFPDXBNJZSQVHLCKE";
 
-
   if (result) {
     number = dni.substr(0, dni.length - 1);
     number = number.replace("X", 0);
@@ -219,15 +279,13 @@ function dniValidation() {
     dniLetters = dniLetters.substring(number, number + 1);
 
     if (dniLetters !== letter) {
-      answer.innerHTML = `ERROR. El dni ${dni} no cumple con el siguiente requisito: La letra final no es correcta.`;
+      answer.innerHTML = `El dni ${dni} no cumple con el siguiente requisito: La letra final no es correcta.`;
       answer.style.color = "#FF0000";
       return false;
-
     } else {
       answer.innerHTML = "";
       return true;
-    }  
-    
+    }
   } else {
     answer.innerHTML = `ERROR. El dni ${dni} no cumple con el siguiente requisito: El formato del dni no es correcto`;
     answer.style.color = "#FF0000";
@@ -296,7 +354,7 @@ const Validation = (event) => {
       }
       break;
   }
-}
+};
 
 function saveData() {
   setCookie("user", inputNombre.value, 1 / 24);
@@ -346,5 +404,15 @@ function clean() {
   }
 }
 
-const listeners = [formu.user, formu.phone, formu.birth_day, formu.birth_month, formu.birth_year, formu.email, formu.dni];
-for (const listener of listeners) listener.addEventListener("keyup", Validation);
+const listeners = [
+  formu.user,
+  formu.phone,
+  formu.birth_day,
+  formu.birth_month,
+  formu.birth_year,
+  formu.email,
+  formu.dni,
+];
+
+for (const listener of listeners)
+  listener.addEventListener("keyup", Validation);

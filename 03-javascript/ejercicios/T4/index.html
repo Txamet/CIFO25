@@ -7,108 +7,147 @@
       T4 Control de les dades d'un formulari i persistència a cookies
     </title>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" href="./css/formulari.css" /> -->
+    <link rel="stylesheet" href="./css/formulari.css" />
+    <style></style>
   </head>
   <body>
-    <header class="text-center mt-3 mb-5">
+    <header class="text-center mt-3 mb-5 px-5 w-auto">
       <h1>T4 Control de les dades d'un formulari i persistència a cookies</h1>
     </header>
-    <main class="container justify-content-center">
-      <form method="post" id="form" name="form" class="form-control p-5">
-        <div class="row mb-3">
-          <label for="user" class="col-sm-2 col-form-label ps-5">Usuario: </label>
+    <main class="container justify-content-center ancho mb-5">
+      <form
+        method="post"
+        id="form"
+        name="form"
+        class="form-control p-5"
+        target="new"
+      >
+        <div class="row mb-5 px-5">
+          <label for="user" class="col-sm-2 col-form-label">Usuario: </label>
           <div class="col-sm-10">
             <input
               type="text"
               id="user"
               name="user"
-              class="form-control pe-5"
+              class="form-control flex-grow-3"
               value=""
               required
             />
           </div>
         </div>
-        <div class="row mb-3">
-          <label for="phone" class="col-sm-2 col-form-label ps-5">Teléfono: </label>
+        <div class="row mb-5 px-5">
+          <label for="phone" class="col-sm-2 col-form-label">Teléfono: </label>
           <div class="col-sm-10">
             <input
               type="number"
               id="phone"
               name="phone"
-              class="form-control w-75"
+              class="form-control"
               value=""
               required
             />
           </div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-5 px-5">
           <label for="age" class="form-label">Fecha nacimiento: </label>
-          <div>
-            <label for="birth_day" class="form-label">Dia: </label>
-            <input
-              type="number"
-              id="birth_day"
-              name="birth_day"
-              class=""
-              value=""
-            />
-            <label for="birth_month" class="form-label">Mes: </label>
-            <input
-              type="number"
-              id="birth_month"
-              name="birth_month"
-              class=""
-              value=""
-            />
-            <label for="birth_year" class="form-label">Año: </label>
-            <input
-              type="number"
-              id="birth_year"
-              name="birth_year"
-              class=""
-              value=""
-            />
+          <div class="d-flex flex-wrap flex-fill gap-3">
+            <div class="flex-fill">
+              <label for="birth_day" class="form-label">Dia: </label>
+              <input
+                type="number"
+                id="birth_day"
+                name="birth_day"
+                class="form-control text-center"
+                value=""
+              />
+            </div>
+            <div class="flex-fill">
+              <label for="birth_month" class="form-label">Mes: </label>
+              <input
+                type="number"
+                id="birth_month"
+                name="birth_month"
+                class="form-control text-center"
+                value=""
+              />
+            </div>
+            <div class="flex-fill">
+              <label for="birth_year" class="form-label">Año: </label>
+              <input
+                type="number"
+                id="birth_year"
+                name="birth_year"
+                class="form-control text-center"
+                value=""
+              />
+            </div>
           </div>
         </div>
-        <div class="row mb-3">
-          <label for="email" class="col-sm-2 col-form-label ps-5">Email: </label>
+        <div class="row mb-5 px-5">
+          <label for="email" class="col-sm-2 col-form-label">Email: </label>
           <div class="col-sm-10">
             <input
               type="email"
               id="email"
               name="email"
-              class="form-control w-75"
+              class="form-control"
               value=""
               required
             />
           </div>
         </div>
-        <div class="row mb-3">
-          <label for="dni" class="col-sm-2 col-form-label ps-5">DNI: </label>
+        <div class="row mb-5 px-5">
+          <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
           <div class="col-sm-10">
-            <input type="text" id="dni" name="dni" class="form-control w-75" value="" required />
+            <input
+              type="text"
+              id="dni"
+              name="dni"
+              class="form-control"
+              value=""
+              required
+            />
           </div>
         </div>
-        <div>
+        <div class="form-check mb-5 px-5">
           <label for="conditions" class="form-label"
             >Acepto las condiciones
           </label>
-          <input type="checkbox" name="conditions" id="conditions" />
+          <input
+            type="checkbox"
+            name="conditions"
+            id="conditions"
+            class="ms-2"
+          />
         </div>
-        <div class="botones">
-          <button type="submit" class="btn btn-primary">Regístrate</button>
-          <button type="button" onclick="clean()" class="btn btn-danger">
+        <div class="d-flex flex-wrap flex-fill gap-3 px-5">
+          <button type="submit" class="btn btn-primary flex-fill">
+            Regístrate
+          </button>
+          <button
+            type="button"
+            onclick="clean()"
+            class="btn btn-danger flex-fill"
+          >
             Limpiar formulario
           </button>
-          <button type="button" onclick="saveData()" class="btn btn-primary">
+          <button
+            type="button"
+            onclick="saveData()"
+            class="btn btn-primary flex-fill"
+          >
             Guardar datos
           </button>
-          <button type="button" onclick="loadData()" class="btn btn-warning">
+          <button
+            type="button"
+            onclick="loadData()"
+            class="btn btn-primary flex-fill"
+          >
             Cargar datos
           </button>
         </div>
+        <div id="answer" class="border border-black m-5 p-3 fs-3 h-auto"></div>
       </form>
-      <div id="answer"></div>
     </main>
     <script src="./js/formulari.js"></script>
   </body>
