@@ -31,15 +31,43 @@ main {
 form {
   display: flex;
   flex-flow: column wrap;
-  padding: 1rem;
+  padding: 2rem;
+  font-size: 1.5rem;
 }
 
 form div {
   padding-bottom: 1rem;
+  /* align-items: center; */
+  /* display: flex;
+  justify-content: left; */
 }
 
+form div label {
+  vertical-align: 1rem;
+}
+
+/* .email {
+  display: flex;
+  flex-flow: row;
+}
+ */
+.email input {
+  vertical-align:baseline;
+}
+
+.email label {
+  vertical-align:baseline;
+}
+
+/* label {
+  padding: auto;
+} */
+
 input {
-  padding: 0.1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  width: 80%;
+  float: right;
 }
 
 button {
@@ -50,4 +78,25 @@ button {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
+}
+
+.age input {
+  width: 20%;
+  float: none;
+}
+
+.age {
+  text-align: end;
+  padding-top: 1rem;
+}
+
+.conditions {
+  display: flex;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  float: none;
+  width: 10%;
+  transform: scale(2);
 }
