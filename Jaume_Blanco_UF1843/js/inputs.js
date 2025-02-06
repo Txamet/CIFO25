@@ -5,6 +5,7 @@ const outputErroneas = document.querySelector(".letrasErroneas span");
 const inputLetter = document.querySelector(".lletra");
 const button = document.querySelector("#boton");
 const mensaje = document.querySelector(".mostra");
+const detalles = document.querySelectorAll(".detalles p");
 
 let indexPalabra = Math.floor(Math.random() * 19);
 let palabra = listado[indexPalabra].palabra;

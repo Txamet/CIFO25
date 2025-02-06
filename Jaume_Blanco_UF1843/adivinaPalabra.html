@@ -8,7 +8,19 @@
   </head>
 
   <body>
-    <main>
+    <header>
+      <nav>
+        <div class="menu">
+          <a class="boton2" tabindex="0"
+            ><img src="./img/modo-oscuro.png" alt="" /></a
+          >|
+          <a class="boton3" tabindex="0">+</a>
+          <span> Aa </span>
+          <a class="boton4" tabindex="0">-</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
       <h1>Palabra a adivinar</h1>
 
       <div class="content">
@@ -19,16 +31,21 @@
         <hr id="linea" />
 
         <div class="detalles">
-          <p class="pista">Pista: <span></span></p>
-          <p class="restantes">Intentos restantes: <span></span></p>
-          <p class="letrasErroneas">Letras erroneas: <span></span></p>
+          <p class="pista" tabindex="0">Pista: <span></span></p>
+          <p class="restantes" tabindex="0">
+            Intentos restantes: <span></span>
+          </p>
+          <p class="letrasErroneas" tabindex="0">
+            Letras erroneas: <span></span>
+          </p>
         </div>
+
         <div class="mostra"></div>
-        <button class="reset-btn" id="boton">Adivinar Palabra</button>
-        <button class="reset-btn" id="boton2">Cambiar contraste</button>
+        <button class="reset-btn" id="boton" tabindex="0">
+          Adivinar Palabra
+        </button>
       </div>
     </main>
-
     <script src="js/listadoPalabras.js"></script>
     <script src="js/inputs.js"></script>
     <script src="js/mensajes.js"></script>

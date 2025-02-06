@@ -5,6 +5,8 @@ let count = 8;
 let total = 0;
 let check = true;
 let completado = false;
+let modo = "claro";
+let tamanoLetra = 1.5;
 const letrasTotales = [];
 
 if (palabra.length < 7) count = 6;
@@ -41,6 +43,7 @@ inputLetter.addEventListener("keyup", (e) => {
     outputIntentos.innerHTML = `Haz click en Volver a empezar`;
     mensaje.innerHTML = fallo;
     mensaje.style.color = "red";
+    mensaje.tabIndex = "0";
     completaPalabra();
   }
 
@@ -59,6 +62,7 @@ inputLetter.addEventListener("keyup", (e) => {
     outputIntentos.innerHTML = `Haz click en Volver a empezar`;
     mensaje.innerHTML = fallo;
     mensaje.style.color = "red";
+    mensaje.tabIndex = "0";
     completaPalabra();
   }
 
@@ -69,6 +73,7 @@ inputLetter.addEventListener("keyup", (e) => {
     completado = true;
     mensaje.innerHTML = acierto;
     mensaje.style.color = "green";
+    mensaje.tabIndex = "0";
   }
 
   inputLetter.value = "";
@@ -104,21 +109,49 @@ const completaPalabra = () => {
   }
 };
 
-const button2 = document.querySelector("#boton2");
+const button2 = document.querySelector(".boton2");
+const button3 = document.querySelector(".boton3");
+const button4 = document.querySelector(".boton4");
 
 const cambioContraste = () => {
   const input = document.querySelectorAll(".inputs input");
+  document.querySelector(".boton2").classList.toggle("alter_boton2");
+  document.querySelector("body").classList.toggle("alter_body");
+  document.querySelector("h1").classList.toggle("alter_h1");
+  document.querySelector(".menu").classList.toggle("alter_menu");
+  for (const inputs of input) inputs.classList.toggle("alter_input");
+  for (const detalle of detalles) detalle.classList.toggle("alter_p");
+};
 
-  if (document.body.style.color == "white") {
-    document.body.style.color = "black";
-    document.body.style.backgroundColor = "white";
-  } else {
-    document.body.style.color = "white";
-    document.body.style.backgroundColor = "black";
-    for (const inputs of input) inputs.style.backgroundColor = "white";
+const aumentarTamanoLetra = () => {
+  if (tamanoLetra < 3) {
+    tamanoLetra += 0.1;
+    for (const detalle of detalles)
+      detalle.style.fontSize = `${tamanoLetra}rem`;
+  }
+};
+const disminuirTamanoLetra = () => {
+  if (tamanoLetra > 0.75) {
+    tamanoLetra -= 0.1;
+    for (const detalle of detalles)
+      detalle.style.fontSize = `${tamanoLetra}rem`;
   }
 };
 
-button2.addEventListener("click", () => {
-  cambioContraste();
+button2.addEventListener("click", cambioContraste);
+button2.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") cambioContraste();
+});
+button3.addEventListener("click", aumentarTamanoLetra);
+button3.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") aumentarTamanoLetra();
+});
+button4.addEventListener("click", disminuirTamanoLetra);
+button4.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") disminuirTamanoLetra();
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key == "ArrowUp") aumentarTamanoLetra();
+  if (e.key == "ArrowDown") disminuirTamanoLetra();
 });
