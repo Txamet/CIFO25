@@ -1,13 +1,20 @@
-let indexMsg = Math.floor(Math.random() * 6);
-let fallo = msgError[indexMsg];
-let acierto = msg[indexMsg];
+let indexMsg, fallo, acierto;
 let count = 8;
 let total = 0;
 let check = true;
 let completado = false;
-let modo = "claro";
 let tamanoLetra = 1.5;
+let contraste = "claro";
 const letrasTotales = [];
+
+const nuevoMensaje = () => {
+  indexMsg = Math.floor(Math.random() * 6);
+  fallo = msgError[indexMsg];
+  acierto = msg[indexMsg];
+  console.log(fallo);
+};
+
+nuevoMensaje();
 
 if (palabra.length < 7) count = 6;
 
@@ -27,12 +34,58 @@ document.addEventListener("click", () => {
   inputLetter.focus();
 });
 
+//sessionStorage.setItem("modo", "claro");
+let lastSession = sessionStorage.getItem("modo");
+
 button.addEventListener("click", () => {
-  inputLetter.value = "";
+  console.log(lastSession);
+  inputLetter.innerHTML = "";
   location.reload();
+
+  /*   if (lastSession == "oscuro") {
+    location.reload();
+    console.log(lastSession);
+    sessionStorage.setItem("modo", "claro");
+    lastSession = sessionStorage.getItem("modo");
+    console.log(lastSession);
+    cambioContraste();
+  } else {
+    location.reload();
+  } */
+
+  /*   outputErroneas.innerHTML = "";
+  mensaje.innerHTML = "";
+
+  letrasTotales.splice(0, letrasTotales.length - 1);
+  letrasTotales.pop();
+
+  palabra = nuevaPalabraPista();
+  nuevoMensaje();
+
+  count = 8;
+  total = 0;
+  if (palabra.length < 7) count = 6;
+
+  outputPista.innerHTML = pista;
+  outputIntentos.innerHTML = count;
+
+  const inputsToRemove = document.querySelectorAll(".inputs input");
+  for (const removeInputs of inputsToRemove) removeInputs.remove();
+
+  for (let i = 0; i < palabra.length; i++) {
+    const input = document.createElement("input");
+    input.setAttribute("disabled", true);
+    outputInputs.appendChild(input);
+  }
+
+  if (contraste == "oscuro") {
+    const inputList = document.querySelectorAll(".inputs input");
+    for (const inputs of inputList) inputs.classList.toggle("alter_input");
+  } */
 });
 
 inputLetter.addEventListener("keyup", (e) => {
+  console.log(letrasTotales);
   let letra = e.key;
   let pattern = /^[A-z]$/;
   let letraValida = pattern.test(letra);
@@ -109,19 +162,32 @@ const completaPalabra = () => {
   }
 };
 
-const button2 = document.querySelector(".boton2");
-const button3 = document.querySelector(".boton3");
-const button4 = document.querySelector(".boton4");
-
 const cambioContraste = () => {
   const input = document.querySelectorAll(".inputs input");
+
   document.querySelector(".boton2").classList.toggle("alter_boton2");
   document.querySelector("body").classList.toggle("alter_body");
   document.querySelector("h1").classList.toggle("alter_h1");
   document.querySelector(".menu").classList.toggle("alter_menu");
+
   for (const inputs of input) inputs.classList.toggle("alter_input");
   for (const detalle of detalles) detalle.classList.toggle("alter_p");
+
+  /* if (lastSession == "oscuro") {
+    sessionStorage.setItem("modo", "claro");
+    lastSession = sessionStorage.getItem("modo");
+  } else {
+    sessionStorage.setItem("modo", "oscuro");
+    lastSession = sessionStorage.getItem("modo");
+  } */
+  sessionStorage.setItem("modo", "oscuro");
+  lastSession = sessionStorage.getItem("modo");
+  console.log(lastSession);
 };
+console.log(lastSession);
+if (lastSession == "oscuro") {
+  cambioContraste();
+}
 
 const aumentarTamanoLetra = () => {
   if (tamanoLetra < 3) {
