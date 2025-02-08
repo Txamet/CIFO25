@@ -1,3 +1,17 @@
+const outputInputs = document.querySelector(".inputs");
+const outputPista = document.querySelector(".pista span");
+const outputIntentos = document.querySelector(".restantes span");
+const outputErroneas = document.querySelector(".letrasErroneas span");
+const inputLetter = document.querySelector(".lletra");
+const button = document.querySelector("#boton");
+const button2 = document.querySelector(".boton2");
+const button3 = document.querySelector(".boton3");
+const button4 = document.querySelector(".boton4");
+const mensaje = document.querySelector(".mostra");
+const detalles = document.querySelectorAll(".detalles p");
+
+let palabra = "PALABRA";
+let indexPalabra, pista, word;
 let indexMsg, fallo, acierto;
 let count = 8;
 let total = 0;
@@ -7,7 +21,14 @@ let tamanoLetra = 1.5;
 let contraste = "claro";
 const letrasTotales = [];
 
+const nuevaPalabraPista = () => {
+  indexPalabra = Math.floor(Math.random() * 19);
+  palabra = listado[indexPalabra].palabra;
+  pista = listado[indexPalabra].pista;
+};
+
 const montarJuego = () => {
+  nuevaPalabraPista();
   if (palabra.length < 7) count = 6;
 
   inputLetter.focus();
@@ -15,6 +36,8 @@ const montarJuego = () => {
   inputLetter.style.cursor = "default";
   outputPista.innerHTML = pista;
   outputIntentos.innerHTML = count;
+
+  nuevoMensaje();
 
   for (let i = 0; i < palabra.length; i++) {
     const input = document.createElement("input");
@@ -25,14 +48,9 @@ const montarJuego = () => {
 
 const nuevoMensaje = () => {
   indexMsg = Math.floor(Math.random() * 6);
-  const mensajes = mensajeAF(palabra, indexMsg)
-  fallo = mensajes[1];
-  acierto = mensajes[0];
- 
+  fallo = msgError[indexMsg].replace("PALABRA", palabra.toUpperCase());
+  acierto = msg[indexMsg].replace("PALABRA", palabra.toUpperCase());
 };
-
-montarJuego();
-nuevoMensaje();
 
 const checkLetra = (letra) => {
   let result = false;
@@ -64,50 +82,7 @@ const completaPalabra = () => {
   }
 };
 
-const cambioContraste = () => {
-  const input = document.querySelectorAll(".inputs input");
-
-  button2.classList.toggle("alter_boton2");
-  document.querySelector("body").classList.toggle("alter_body");
-  document.querySelector("h1").classList.toggle("alter_h1");
-  document.querySelector(".menu").classList.toggle("alter_menu");
-
-  for (const inputs of input) inputs.classList.toggle("alter_input");
-  for (const detalle of detalles) detalle.classList.toggle("alter_p");
-
-  if (contraste == "oscuro") {
-    contraste = "claro"
-  } else {
-    contraste = "oscuro"
-  }
-};
-
-const aumentarTamanoLetra = () => {
-  if (tamanoLetra < 3) {
-    tamanoLetra += 0.1;
-    for (const detalle of detalles)
-      detalle.style.fontSize = `${tamanoLetra}rem`;
-  }
-};
-const disminuirTamanoLetra = () => {
-  if (tamanoLetra > 0.75) {
-    tamanoLetra -= 0.1;
-    for (const detalle of detalles)
-      detalle.style.fontSize = `${tamanoLetra}rem`;
-  }
-};
-
-document.addEventListener("click", () => {
-  inputLetter.focus();
-});
-
-document.addEventListener("keyup", (e) => {
-  if (e.key == "ArrowUp") aumentarTamanoLetra();
-  if (e.key == "ArrowDown") disminuirTamanoLetra();
-});
-
-inputLetter.addEventListener("keyup", (e) => {
-  console.log(letrasTotales);
+const inputTecla = (e) => {
   let letra = e.key;
   let pattern = /^[A-zñ]$/;
   let letraValida = pattern.test(letra);
@@ -152,9 +127,9 @@ inputLetter.addEventListener("keyup", (e) => {
   }
 
   inputLetter.value = "";
-});
+}
 
-button.addEventListener("click", () => {
+const reset = () => {
   const inputsToRemove = document.querySelectorAll(".inputs input");
   for (const removeInputs of inputsToRemove) removeInputs.remove();
 
@@ -165,31 +140,43 @@ button.addEventListener("click", () => {
   mensaje.innerHTML = "";
   letrasTotales.splice(0, letrasTotales.length);
 
-  palabra = nuevaPalabraPista();
   montarJuego();
-  nuevoMensaje();
 
   if (contraste == "oscuro") {
     const inputList = document.querySelectorAll(".inputs input");
     for (const inputs of inputList) inputs.classList.toggle("alter_input");
   }
-});
+}
 
-button2.addEventListener("click", cambioContraste);
+const cambioContraste = () => {
+  const input = document.querySelectorAll(".inputs input");
 
-button2.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") cambioContraste();
-});
+  button2.classList.toggle("alter_boton2");
+  document.querySelector("body").classList.toggle("alter_body");
+  document.querySelector("h1").classList.toggle("alter_h1");
+  document.querySelector(".menu").classList.toggle("alter_menu");
 
-button3.addEventListener("click", aumentarTamanoLetra);
+  for (const inputs of input) inputs.classList.toggle("alter_input");
+  for (const detalle of detalles) detalle.classList.toggle("alter_p");
 
-button3.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") aumentarTamanoLetra();
-});
+  if (contraste == "oscuro") {
+    contraste = "claro"
+  } else {
+    contraste = "oscuro"
+  }
+};
 
-button4.addEventListener("click", disminuirTamanoLetra);
-
-button4.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") disminuirTamanoLetra();
-});
-
+const aumentarTamanoLetra = () => {
+  if (tamanoLetra < 3) {
+    tamanoLetra += 0.1;
+    for (const detalle of detalles)
+      detalle.style.fontSize = `${tamanoLetra}rem`;
+  }
+};
+const disminuirTamanoLetra = () => {
+  if (tamanoLetra > 0.75) {
+    tamanoLetra -= 0.1;
+    for (const detalle of detalles)
+      detalle.style.fontSize = `${tamanoLetra}rem`;
+  }
+};

@@ -1,4 +1,17 @@
+const outputInputs = document.querySelector(".inputs");
+const outputPista = document.querySelector(".pista span");
+const outputIntentos = document.querySelector(".restantes span");
+const outputErroneas = document.querySelector(".letrasErroneas span");
+const inputLetter = document.querySelector(".lletra");
+const button = document.querySelector("#boton");
+const button2 = document.querySelector(".boton2");
+const button3 = document.querySelector(".boton3");
+const button4 = document.querySelector(".boton4");
+const mensaje = document.querySelector(".mostra");
+const detalles = document.querySelectorAll(".detalles p");
+
 let indexMsg, fallo, acierto;
+let indexPalabra, pista, word;
 let count = 8;
 let total = 0;
 let check = true;
@@ -7,7 +20,15 @@ let tamanoLetra = 1.5;
 let contraste = "claro";
 const letrasTotales = [];
 
+
+const nuevaPalabraPista = () => {
+  indexPalabra = Math.floor(Math.random() * 19);
+  palabra = listado[indexPalabra].palabra;
+  pista = listado[indexPalabra].pista;
+};
+
 const montarJuego = () => {
+  nuevaPalabraPista();
   if (palabra.length < 7) count = 6;
 
   inputLetter.focus();
@@ -21,18 +42,16 @@ const montarJuego = () => {
     input.setAttribute("disabled", true);
     outputInputs.appendChild(input);
   }
+
+  nuevoMensaje();
 }
 
 const nuevoMensaje = () => {
   indexMsg = Math.floor(Math.random() * 6);
-  const mensajes = mensajeAF(palabra, indexMsg)
-  fallo = mensajes[1];
-  acierto = mensajes[0];
+  fallo = msgError[indexMsg]();
+  acierto = msg[indexMsg]();
  
 };
-
-montarJuego();
-nuevoMensaje();
 
 const checkLetra = (letra) => {
   let result = false;
@@ -61,6 +80,73 @@ const completaPalabra = () => {
       input[i].setAttribute("value", letra.toUpperCase());
       input[i].style.color = "red";
     }
+  }
+};
+
+const inputTecla = (e) => {
+  let letra = e.key;
+  let pattern = /^[A-zñ]$/;
+  let letraValida = pattern.test(letra);
+  let letraRepetida = letrasTotales.includes(letra);
+
+  if (count === 0 && completado == false) {
+    e.preventDefault();
+    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
+    mensaje.innerHTML = fallo;
+    mensaje.style.color = "red";
+    mensaje.tabIndex = "0";
+    completaPalabra();
+  }
+
+  if (!letraRepetida && count > 0) check = checkLetra(letra);
+
+  if (!check && letraValida && count > 1 && !letraRepetida) {
+    count--;
+    letrasTotales.push(letra);
+    outputIntentos.innerHTML = count;
+    outputErroneas.innerHTML += `${letra.toUpperCase()} `;
+    
+  } else if (!check && letraValida && count == 1 && !letraRepetida) {
+    e.preventDefault();
+    count--;
+    letrasTotales.push(letra);
+    outputErroneas.innerHTML += `${letra.toUpperCase()} `;
+    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
+    mensaje.innerHTML = fallo;
+    mensaje.style.color = "red";
+    mensaje.tabIndex = "0";
+    completaPalabra();
+  }
+
+  if (total === palabra.length && count > 0) {
+    e.preventDefault();
+    count = 0;
+    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
+    completado = true;
+    mensaje.innerHTML = acierto;
+    mensaje.style.color = "green";
+    mensaje.tabIndex = "0";
+  }
+
+  inputLetter.value = "";
+}
+
+const reset = () => {
+  const inputsToRemove = document.querySelectorAll(".inputs input");
+  for (const removeInputs of inputsToRemove) removeInputs.remove();
+
+  count = 8;
+  total = 0;
+  inputLetter.innerHTML = "";
+  outputErroneas.innerHTML = "";
+  mensaje.innerHTML = "";
+  letrasTotales.splice(0, letrasTotales.length);
+
+  montarJuego();
+  
+  if (contraste == "oscuro") {
+    const inputList = document.querySelectorAll(".inputs input");
+    for (const inputs of inputList) inputs.classList.toggle("alter_input");
   }
 };
 
@@ -96,100 +182,3 @@ const disminuirTamanoLetra = () => {
       detalle.style.fontSize = `${tamanoLetra}rem`;
   }
 };
-
-document.addEventListener("click", () => {
-  inputLetter.focus();
-});
-
-document.addEventListener("keyup", (e) => {
-  if (e.key == "ArrowUp") aumentarTamanoLetra();
-  if (e.key == "ArrowDown") disminuirTamanoLetra();
-});
-
-inputLetter.addEventListener("keyup", (e) => {
-  console.log(letrasTotales);
-  let letra = e.key;
-  let pattern = /^[A-zñ]$/;
-  let letraValida = pattern.test(letra);
-  let letraRepetida = letrasTotales.includes(letra);
-
-  if (count === 0 && completado == false) {
-    e.preventDefault();
-    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
-    mensaje.innerHTML = fallo;
-    mensaje.style.color = "red";
-    mensaje.tabIndex = "0";
-    completaPalabra();
-  }
-
-  if (!letraRepetida && count > 0) check = checkLetra(letra);
-
-  if (!check && letraValida && count > 1 && !letraRepetida) {
-    count--;
-    letrasTotales.push(letra);
-    outputIntentos.innerHTML = count;
-    outputErroneas.innerHTML += `${letra.toUpperCase()} `;
-  } else if (!check && letraValida && count == 1 && !letraRepetida) {
-    e.preventDefault();
-    count--;
-    letrasTotales.push(letra);
-    outputErroneas.innerHTML += `${letra.toUpperCase()} `;
-    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
-    mensaje.innerHTML = fallo;
-    mensaje.style.color = "red";
-    mensaje.tabIndex = "0";
-    completaPalabra();
-  }
-
-  if (total === palabra.length && count > 0) {
-    e.preventDefault();
-    count = 0;
-    outputIntentos.innerHTML = `Haz click en Volver a empezar`;
-    completado = true;
-    mensaje.innerHTML = acierto;
-    mensaje.style.color = "green";
-    mensaje.tabIndex = "0";
-  }
-
-  inputLetter.value = "";
-});
-
-button.addEventListener("click", () => {
-  const inputsToRemove = document.querySelectorAll(".inputs input");
-  for (const removeInputs of inputsToRemove) removeInputs.remove();
-
-  count = 8;
-  total = 0;
-  inputLetter.innerHTML = "";
-  outputErroneas.innerHTML = "";
-  mensaje.innerHTML = "";
-  letrasTotales.splice(0, letrasTotales.length);
-
-  palabra = nuevaPalabraPista();
-  montarJuego();
-  nuevoMensaje();
-
-  if (contraste == "oscuro") {
-    const inputList = document.querySelectorAll(".inputs input");
-    for (const inputs of inputList) inputs.classList.toggle("alter_input");
-  }
-});
-
-button2.addEventListener("click", cambioContraste);
-
-button2.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") cambioContraste();
-});
-
-button3.addEventListener("click", aumentarTamanoLetra);
-
-button3.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") aumentarTamanoLetra();
-});
-
-button4.addEventListener("click", disminuirTamanoLetra);
-
-button4.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") disminuirTamanoLetra();
-});
-
