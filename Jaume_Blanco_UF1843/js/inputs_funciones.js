@@ -78,7 +78,7 @@ const completaPalabra = () => {
 
     if (input[i].value == "") {
       input[i].setAttribute("value", letra.toUpperCase());
-      input[i].style.color = "red";
+      input[i].style.color = "#eb0000";
     }
   }
 };
@@ -93,7 +93,7 @@ const inputTecla = (e) => {
     e.preventDefault();
     outputIntentos.innerHTML = `Haz click en Volver a empezar`;
     mensaje.innerHTML = fallo;
-    mensaje.style.color = "red";
+    mensaje.style.color = "#eb0000";
     mensaje.tabIndex = "0";
     completaPalabra();
   }
@@ -113,7 +113,7 @@ const inputTecla = (e) => {
     outputErroneas.innerHTML += `${letra.toUpperCase()} `;
     outputIntentos.innerHTML = `Haz click en Volver a empezar`;
     mensaje.innerHTML = fallo;
-    mensaje.style.color = "red";
+    mensaje.style.color = "#eb0000";
     mensaje.tabIndex = "0";
     completaPalabra();
   }
@@ -173,12 +173,16 @@ const aumentarTamanoLetra = () => {
     tamanoLetra += 0.1;
     for (const detalle of detalles)
       detalle.style.fontSize = `${tamanoLetra}rem`;
+
+    mensaje.style.fontSize = `${tamanoLetra}rem`;
   }
 };
 const disminuirTamanoLetra = () => {
-  if (tamanoLetra > 0.75) {
+  if (tamanoLetra > 1) {
     tamanoLetra -= 0.1;
     for (const detalle of detalles)
       detalle.style.fontSize = `${tamanoLetra}rem`;
+
+    mensaje.style.fontSize = `${tamanoLetra}rem`;
   }
 };

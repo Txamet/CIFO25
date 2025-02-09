@@ -19,6 +19,7 @@ let completado = false;
 let tamanoLetra = 1.5;
 const letrasTotales = [];
 
+
 const nuevaPalabraPista = () => {
   indexPalabra = Math.floor(Math.random() * 19);
   palabra = listado[indexPalabra].palabra;
@@ -47,6 +48,10 @@ const montarJuego = () => {
   }
 
   nuevoMensaje();
+
+  if (sessionStorage.getItem("modo") == "oscuro") {
+  cambioContraste();
+}
 }
 
 const checkLetra = (letra) => {
@@ -151,14 +156,18 @@ const aumentarTamanoLetra = () => {
     tamanoLetra += 0.1;
     for (const detalle of detalles)
       detalle.style.fontSize = `${tamanoLetra}rem`;
+
+    mensaje.style.fontSize = `${tamanoLetra}rem`;
   }
 };
 
 const disminuirTamanoLetra = () => {
-  if (tamanoLetra > 0.75) {
+  if (tamanoLetra > 1) {
     tamanoLetra -= 0.1;
     for (const detalle of detalles)
       detalle.style.fontSize = `${tamanoLetra}rem`;
+
+    mensaje.style.fontSize = `${tamanoLetra}rem`;
   }
 };
 

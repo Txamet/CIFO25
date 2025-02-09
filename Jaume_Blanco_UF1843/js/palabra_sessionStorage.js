@@ -13,6 +13,10 @@ button.addEventListener("click", () => {
   inputLetter.innerHTML = "";
   sessionStorage.setItem("recarga", "on")
   location.reload();
+  for (const detalle of detalles)
+      detalle.style.fontSize = `${sessionStorage.getItem("letra")}rem`;
+
+  mensaje.style.fontSize = `${sessionStorage.getItem("letra")}rem`;
 });
 
 button2.addEventListener("click", () => {
