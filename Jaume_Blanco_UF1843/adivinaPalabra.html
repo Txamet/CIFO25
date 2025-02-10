@@ -11,18 +11,33 @@
     <header>
       <nav class="menu">
         <div aria-label="Cambia el contraste del color" class="submenu">
-          <a aria-label="Cambia el contraste del color" class="boton2" tabindex="0"
-            ><img src="./img/modo-oscuro.png" alt="simbolo de contraste de color" /></a
-          >
+          <a
+            aria-label="Cambia el contraste del color"
+            class="boton2"
+            tabindex="0"
+            ><img
+              src="./img/modo-oscuro.png"
+              alt="simbolo de contraste de color"
+          /></a>
         </div>
         <span>|</span>
-        <div aria-label="Cambia el tamaño de la letra"  class="submenu2">
-          <a aria-label="Aumenta el tamaño de la letra" class="boton3" tabindex="0">+</a>
+        <div aria-label="Cambia el tamaño de la letra" class="submenu2">
+          <a
+            aria-label="Aumenta el tamaño de la letra"
+            class="boton3"
+            tabindex="0"
+            >+</a
+          >
           <span>Aa</span>
-          <a aria-label="Disminuye el tamaño de la letra" class="boton4" tabindex="0">-</a>
+          <a
+            aria-label="Disminuye el tamaño de la letra"
+            class="boton4"
+            tabindex="0"
+            >-</a
+          >
         </div>
       </nav>
-      <hr>
+      <hr />
     </header>
     <main id="main">
       <h1>Palabra a adivinar</h1>
@@ -30,21 +45,45 @@
       <div aria-label="Contenido del juego" class="content">
         <input aria-hidden="true" type=" text" class="lletra" maxlength="1" />
 
-        <div aria-label="Palabra a resolver" aria-hidden="true" class="inputs"></div>
+        <div
+          aria-label="Palabra a resolver"
+          aria-hidden="true"
+          class="inputs"
+        ></div>
 
         <hr id="linea" />
 
         <div aria-label="Información relevante del juego" class="detalles">
-          <p id="pista" class="pista" tabindex="0" aria-label="La pista para adivinar la palabra" role="document">Pista: <span aria-labelledby="pista"></span></p>
-          <p id="restantes" class="restantes" tabindex="0" aria-label="Los intentos restantes para adivinar la palabra">
+          <p
+            id="pista"
+            class="pista"
+            tabindex="0"
+            aria-label="La pista para adivinar la palabra"
+          >
+            Pista: <span aria-labelledby="pista"></span>
+          </p>
+          <p
+            id="restantes"
+            class="restantes"
+            tabindex="0"
+            aria-label="Los intentos restantes para adivinar la palabra"
+          >
             Intentos restantes: <span aria-labelledby="restantes"></span>
           </p>
-          <p id="letrasErroneas" class="letrasErroneas" tabindex="0" aria-label="Letras erróneas introducidas">
+          <p
+            id="letrasErroneas"
+            class="letrasErroneas"
+            tabindex="0"
+            aria-label="Letras erróneas introducidas"
+          >
             Letras erróneas: <span aria-labelledby="restantes"></span>
           </p>
         </div>
 
-        <div aria-label="Muestra el resultado final del juego" class="mostra"></div>
+        <div
+          aria-label="Muestra el resultado final del juego"
+          class="mostra"
+        ></div>
         <button class="reset-btn" id="boton" tabindex="0">
           Volver a empezar
         </button>
@@ -52,17 +91,17 @@
     </main>
     <script src="js/listadoPalabras.js"></script>
 
-     <!-- AF función que engloba ambos arrays mensajes -->
+    <!-- AF función que engloba ambos arrays mensajes -->
     <!-- <script src="js/inputs_AF.js"></script>
     <script src="js/mensajes_AF.js"></script> 
     <script src="js/palabra_AF.js"></script> -->
-    
+
     <!-- Funciones dentro de mensajes -->
     <script src="js/inputs_funciones.js"></script>
     <script src="js/mensajes_funciones.js"></script>
     <script src="js/palabra_funciones.js"></script>
 
-    <!-- Replace de la palabra en el array del mensaje-->  
+    <!-- Replace de la palabra en el array del mensaje-->
     <!-- <script src="js/inputs_replace.js"></script>
     <script src="js/mensajes.js"></script> 
     <script src="js/palabra_replace.js"></script> -->
@@ -72,7 +111,7 @@
     <script src="js/mensajes.js"></script>
     <script src="js/palabra_sessionStorage.js"></script> -->
 
-    <!-- Reload + cookies --> 
+    <!-- Reload + cookies -->
     <!-- <script src="js/inputs_cookies.js"></script>
     <script src="js/mensajes.js"></script>
     <script src="js/palabra_cookies.js"></script> -->

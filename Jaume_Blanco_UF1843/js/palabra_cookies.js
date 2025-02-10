@@ -11,13 +11,13 @@ inputLetter.addEventListener("keyup", inputTecla);
 
 button.addEventListener("click", () => {
   inputLetter.innerHTML = "";
-  setCookie("recarga", "on", 1/24);
+  setCookie("recarga", "on", 1 / 24);
   location.reload();
 });
 
 button2.addEventListener("click", () => {
   if (getCookie("recarga") == "on") {
-    setCookie("recarga", "off", 1/24);
+    setCookie("recarga", "off", 1 / 24);
   }
   cambioContraste();
 });
@@ -37,7 +37,6 @@ button4.addEventListener("click", disminuirTamanoLetra);
 button4.addEventListener("keyup", (e) => {
   if (e.key === "Enter") disminuirTamanoLetra();
 });
-
 
 montarJuego();
 
