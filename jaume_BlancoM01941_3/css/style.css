@@ -1,0 +1,110 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+::selection {
+  background-color: none;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 2px solid dodgerblue;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 50%;
+  position: relative;
+  /* text-align: center; */
+  left: 25%;
+}
+
+header {
+  margin: 2rem 2rem;
+  text-align: center;
+}
+
+label,
+p,
+input button,
+div,
+br {
+  margin-bottom: 1.5rem;
+}
+
+#usuario button,
+#primera_seleccion button,
+#segunda_seleccion button,
+.blue_button {
+  width: 10%;
+  padding: 0.5rem;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+input {
+  width: 40%;
+  padding: 0.5rem;
+}
+
+#juego {
+  text-align: center;
+}
+
+#juego #reglas {
+  text-align: left;
+}
+
+#tablero {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 60% auto;
+  margin: 2rem;
+  left: 25%;
+}
+
+#tablero button {
+  width: 15%;
+  font-size: 1.5rem;
+  background-color: aquamarine;
+}
+
+#feedback_juego {
+  text-align: center;
+  font-weight: bold;
+}
+
+#finalizado p {
+  text-align: center;
+}
+
+.blue_button {
+  width: 15%;
+  margin-right: 1rem;
+}
+
+.red_button {
+  background-color: red;
+  color: white;
+  width: 10%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 2px solid black;
+}
