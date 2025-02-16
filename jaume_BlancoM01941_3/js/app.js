@@ -22,29 +22,23 @@ const nombrePattern = /^[A-z]+$/;
 let numero_uno,
   numero_dos,
   aleatorio,
-  contador = 0,
-  completado = false;
-
-if (localStorage.getItem("recarga") == "on") {
-  nombreUsuario.hidden = true;
-  seleccionNumeros.hidden = false;
-  parrafoUsuario.innerHTML = localStorage.getItem("usuario");
-}
+  contador = 5,
+  completado = false,
+  tamanoLetra = 1;
 
 const guardarNombre = () => {
   nombre = usuario.value;
   let nombreValido = nombrePattern.test(nombre);
   console.log(nombre, nombreValido);
   if (nombreValido) {
-    console.log("ok");
     localStorage.setItem("usuario", nombre);
     respuestaNombre.innerHTML = "";
-    nombreUsuario.hidden = true;
-    seleccionNumeros.hidden = false;
+    nombreUsuario.style.display = "none";
+    seleccionNumeros.style.display = "block";
     parrafoUsuario.innerHTML = localStorage.getItem("usuario");
   } else {
     respuestaNombre.innerHTML = `Nombre no válido, vuelve a probar teniendo en cuenta que no puedes introducir valores numéricos.  `;
-    respuestaNombre.style.color = "red";
+    respuestaNombre.style.color = "#eb0000";
   }
 };
 
@@ -54,10 +48,10 @@ const primerNumero = () => {
   if (numero_uno > 0 && numero_uno < 11) {
     respuestaPrimerNumero.innerHTML = `Tu primer número es el ${numero_uno}`;
     respuestaPrimerNumero.style.color = "green";
-    seleccionNumerosSegundo.hidden = false;
+    seleccionNumerosSegundo.style.display = "block"
   } else {
     respuestaPrimerNumero.innerHTML = `Has de introducir un número entre 1 y 10.`;
-    respuestaPrimerNumero.style.color = "red";
+    respuestaPrimerNumero.style.color = "#eb0000";
   }
 };
 
@@ -69,19 +63,22 @@ const segundoNumero = () => {
     respuestaSegundoNumero.style.color = "green";
 
     setTimeout(() => {
-      seleccionNumeros.hidden = true;
-      juego.hidden = false;
+      seleccionNumeros.style.display = "none";
+      seleccionNumerosSegundo.style.display = "none"
+      juego.style.display = "block";
+      respuestaPrimerNumero.innerHTML = "";
+      respuestaSegundoNumero.innerHTML = "";
       crearParrilla();
       aleatorio = crearNumero();
       console.log(aleatorio);
 
       reglas.innerHTML = `${localStorage.getItem(
         "usuario"
-      )} tus números son ${numero_uno} y el ${numero_dos}. Adivina el número dentro de ese rango que ha pensado el juego de manera aleatoria`;
+      )}, tus números son ${numero_uno} y el ${numero_dos}. Adivina el número dentro de ese rango que ha pensado el juego de manera aleatoria`;
     }, 1000);
   } else {
     respuestaSegundoNumero.innerHTML = `Has de introducir un número entre 30 y 40.`;
-    respuestaSegundoNumero.style.color = "red";
+    respuestaSegundoNumero.style.color = "#eb0000";
   }
 };
 
@@ -90,7 +87,7 @@ const crearParrilla = () => {
     const casilla = document.createElement("button");
     let valorCasilla = document.createTextNode(i);
     casilla.appendChild(valorCasilla);
-    casilla.setAttribute("id", i);
+    //casilla.setAttribute("id", i);
     casilla.setAttribute("onclick", `tomarValor(${i})`);
     tablero.appendChild(casilla);
   }
@@ -103,42 +100,94 @@ const crearNumero = () => {
 };
 
 const tomarValor = (valor) => {
-  contador++;
+  contador--;
 
-  if (contador < 5 && completado == false) {
+  if (contador > 0 && completado == false) {
     if (valor < aleatorio) {
-      respuestaJuego.innerHTML = `El número ${valor} es menor que el pensado`;
+      respuestaJuego.innerHTML = `El número ${valor} es menor que el pensado. Te quedan ${contador} intentos.`;
+      respuestaJuego.style.color = "#eb0000";
     } else if (valor > aleatorio) {
-      respuestaJuego.innerHTML = `El número ${valor} es mayor que el pensado`;
+      respuestaJuego.innerHTML = `El número ${valor} es mayor que el pensado. Te quedan ${contador} intentos.`;
+      respuestaJuego.style.color = "#eb0000";
     } else {
       completado = true;
       respuestaJuego.innerHTML = `¡ACERTASTE! El número pensado es el ${valor}`;
       respuestaJuego.style.color = "green";
     }
-  } else if (completado == false && contador == 5) {
+  } else if (completado == false && contador == 0) {
     completado = true;
     respuestaJuego.innerHTML = `¡FALLASTE! Se te han acabado todos los intentos`;
-    respuestaJuego.style.color = "red";
+    respuestaJuego.style.color = "#eb0000";
   }
 
   if (completado == true) {
-    finalizado.hidden = false;
+    finalizado.style.display = "block";
   }
 };
 
 const volver = () => {
+  completado = false;
+  contador = 5;
+
   usuario.value = "";
   seleccionPrimerNumero.value = "";
   seleccionSegundoNumero.value = "";
+  tablero.innerHTML = "";
+  respuestaJuego.innerHTML = "";
+
   localStorage.setItem("recarga", "on");
-  location.reload();
+
+  seleccionNumeros.style.display = "block";
+  juego.style.display = "none";
+  finalizado.style.display = "none";
 };
 
 const reset = () => {
   usuario.value = "";
   seleccionPrimerNumero.value = "";
   seleccionSegundoNumero.value = "";
+
   location.reload();
   localStorage.removeItem("usuario");
   localStorage.removeItem("recarga");
 };
+
+const subirLetra = () => {
+  if (tamanoLetra < 2) {
+    tamanoLetra += 0.1
+    document.querySelector("main").style.fontSize = `${tamanoLetra}rem`
+    const input = document.querySelectorAll("input")
+    for (const inputs of input) inputs.style.fontSize = `${tamanoLetra}rem`
+    const button = document.querySelectorAll("button")
+    for (const buttons of button) buttons.style.fontSize = `${tamanoLetra}rem`
+  }
+  
+}
+const bajarLetra = () => {
+  if (tamanoLetra > 1) {
+    tamanoLetra -= 0.1
+    document.querySelector("main").style.fontSize = `${tamanoLetra}rem`
+    const input = document.querySelectorAll("input")
+    for (const inputs of input) inputs.style.fontSize = `${tamanoLetra}rem`
+    const button = document.querySelectorAll("button")
+    for (const buttons of button) buttons.style.fontSize = `${tamanoLetra}rem`
+  }
+
+}
+
+const cambiarContraste = () => {
+  document.querySelector("body").classList.toggle("alter_body");
+  document.querySelector(".contrast_button").classList.toggle("alter_contrast_button");
+  document.querySelector(".minus_button").classList.toggle("alter_minus_button");
+  document.querySelector(".plus_button").classList.toggle("alter_plus_button");
+}
+
+usuario.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") guardarNombre();
+});
+seleccionPrimerNumero.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") primerNumero();
+});
+seleccionSegundoNumero.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") segundoNumero();
+});

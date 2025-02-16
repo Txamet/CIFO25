@@ -8,7 +8,14 @@
   </head>
   <body>
     <header>
-      <h1>Juego a&lt;div>ina</div></h1>
+      <h1>Juego a&lt;div>ina</h1>
+      <nav>
+        <button class="contrast_button" onclick="cambiarContraste()"></button>
+        <span style="font-size: 2.5rem; vertical-align: middle;">|</span>
+        <button class="plus_button" onclick="subirLetra()"></button>
+        <span style="font-size: 2.5rem; vertical-align: middle;">Aa</span>
+        <button class="minus_button" onclick="bajarLetra()"></button>
+      </nav>
     </header>
     <main>
       <div id="usuario" class="usuario" aria-label="Introducir nombre de usuario">
@@ -18,27 +25,28 @@
         <p id="feedback_nombre" aria-label="Feedback sobre si el nombre es correcto" tabindex="0"></p>
       </div>
 
-      <div id="seleccion_numeros" aria-label="Introducir ambos números" hidden>
+      <div id="seleccion_numeros" aria-label="Introducir ambos números">
         <p tabindex="0">Bienvenid@ <span id="nombre_usuario"></span>. El juego consiste en lo siguiente: Tendrás que indicarnos un número del 1 al 10, después otro del 30 al 40 y en ese momento el juego seleccionará de manera aleatoria otro dentro del rango comprendido entre las cifras que has introducido. Tendrás 5 intentos para adivinarlo.</p>
+
         <div id="primera_seleccion" aria-label="Introducir el primer número">
           <label for="primer_numero" tabindex="0">Escribe un número entre el 1 y el 10:</label><br>
-          <input type="number" name="primer_numero" id="primer_numero"><br>
+          <input type="number" name="primer_numero" id="primer_numero" min="1" max="10"><br>
           <button onclick="primerNumero()">Continuar</button><br>
           <p id="feedback_primer_numero" aria-label="Feedback sobre si el número es correcto" tabindex="0"></p>
         </div>
 
-        <div id="segunda_seleccion" aria-label="Introducir el segundo número" hidden>
+        <div id="segunda_seleccion" aria-label="Introducir el segundo número">
           <label for="segundo_numero" tabindex="0">Escribe un número entre el 30 y el 40:</label><br>
-          <input type="number" name="segundo_numero" id="segundo_numero"><br>
+          <input type="number" name="segundo_numero" id="segundo_numero" min="30" max="40"><br>
           <button onclick="segundoNumero()">Continuar</button><br>
           <p id="feedback_segundo_numero" aria-label="Feedback sobre si el número es correcto" tabindex="0"></p>
         </div>
       </div>
-      <div id="juego" aria-label="Despliege del juego" hidden>
+      <div id="juego" aria-label="Despliege del juego">
         <p id="reglas" aria-label="Reglas del juego" tabindex="0"></p>
         <div id="tablero" aria-label="Despliege de tablero con los números"></div>
         <p id="feedback_juego" aria-label="Resultado del juego" tabindex="0"></p>
-        <div id="finalizado" aria-label="Elegir seguir jugando o salir" tabindex="0" hidden>
+        <div id="finalizado" aria-label="Elegir seguir jugando o salir" tabindex="0">
           <p>¿Te gustaría volver a jugar?</p>
           <button onclick="volver()" class="blue_button">Jugar</button>
           <button onclick="reset()" class="red_button">Salir</button>

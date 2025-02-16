@@ -3,9 +3,9 @@
   font-size: 16px;
 }
 
-::selection {
+/* ::selection {
   background-color: none;
-}
+} */
 
 *,
 *::before,
@@ -16,7 +16,8 @@
 }
 
 *:focus {
-  outline: 2px solid dodgerblue;
+  outline: 3px solid dodgerblue;
+  outline-offset: 2px;
 }
 
 html,
@@ -29,13 +30,14 @@ body {
 body {
   width: 50%;
   position: relative;
-  /* text-align: center; */
   left: 25%;
 }
 
 header {
-  margin: 2rem 2rem;
-  text-align: center;
+  margin: 2rem 2rem; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 label,
@@ -46,11 +48,22 @@ br {
   margin-bottom: 1.5rem;
 }
 
+button {
+  cursor: pointer; 
+}
+
+#seleccion_numeros,
+#segunda_seleccion,
+#juego,
+#finalizado {
+  display: none
+}
+
 #usuario button,
 #primera_seleccion button,
 #segunda_seleccion button,
 .blue_button {
-  width: 10%;
+  width: 10% auto;
   padding: 0.5rem;
   background-color: dodgerblue;
   color: white;
@@ -81,10 +94,19 @@ input {
 }
 
 #tablero button {
-  width: 15%;
-  font-size: 1.5rem;
+  width: 5rem;
+  height: 3rem;
+  margin: 0.2rem;
+  font-size: 1rem;
   background-color: aquamarine;
 }
+
+#tablero button:visited {
+  background-color: red;
+  color: white;
+}
+
+
 
 #feedback_juego {
   text-align: center;
@@ -107,4 +129,50 @@ input {
   padding: 0.5rem;
   border-radius: 10px;
   border: 2px solid black;
+}
+
+.plus_button {
+  background-image: url("../icons/add_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+.minus_button {
+  background-image: url("../icons/subtraction_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+
+.contrast_button {
+  background-image: url("../icons/opacity_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+
+.alter_body {
+  background-color: black;
+  color: white;
+}
+
+.alter_contrast_button, .alter_minus_button, .alter_plus_button {
+  filter: invert();
+}
+
+#feedback_nombre,
+#feedback_primer_numero,
+#feedback_segundo_numero,
+#feedback_juego {
+  font-weight: bold;
+  color: #eb0000;
 }
