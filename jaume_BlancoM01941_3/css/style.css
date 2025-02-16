@@ -3,10 +3,6 @@
   font-size: 16px;
 }
 
-/* ::selection {
-  background-color: none;
-} */
-
 *,
 *::before,
 *::after {
@@ -34,18 +30,17 @@ body {
 }
 
 header {
-  margin: 2rem 2rem; 
+  margin: 2rem; 
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid black;
 }
 
-label,
-p,
-input button,
-div,
-br {
-  margin-bottom: 1.5rem;
+main {
+  margin: 2rem;
 }
 
 button {
@@ -56,14 +51,29 @@ button {
 #segunda_seleccion,
 #juego,
 #finalizado {
-  display: none
+  display: none;
+  flex-flow: column;
+  gap: 1.5rem;
 }
+
+#usuario {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+#primera_seleccion {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;  
+}
+
 
 #usuario button,
 #primera_seleccion button,
 #segunda_seleccion button,
 .blue_button {
-  width: 10% auto;
+  width: 10rem;
   padding: 0.5rem;
   background-color: dodgerblue;
   color: white;
@@ -107,7 +117,6 @@ input {
 }
 
 
-
 #feedback_juego {
   text-align: center;
   font-weight: bold;
@@ -117,15 +126,22 @@ input {
   text-align: center;
 }
 
+#botones_finalizado {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-bottom: 3rem;
+}
+
 .blue_button {
-  width: 15%;
+  width: 8rem;
   margin-right: 1rem;
 }
 
 .red_button {
   background-color: red;
   color: white;
-  width: 10%;
+  width: 8rem;
   padding: 0.5rem;
   border-radius: 10px;
   border: 2px solid black;
@@ -165,6 +181,10 @@ input {
   color: white;
 }
 
+.alter_header {
+  border-bottom: 5px solid white;
+}
+
 .alter_contrast_button, .alter_minus_button, .alter_plus_button {
   filter: invert();
 }
@@ -175,4 +195,32 @@ input {
 #feedback_juego {
   font-weight: bold;
   color: #eb0000;
+}
+
+.boton_visitado {
+  background-color: #eb0000;
+  color: white;
+}
+
+@media screen and (max-width: 1270px) {
+  body {
+    width: 80%;
+    position: relative;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  header {
+    gap: 1rem;
+    flex-direction: column-reverse;
+  }
+  body {
+    width: 80%;
+    position: relative;
+    left: 10%;
+  }
+  input {
+    width: 100%;
+  }
 }

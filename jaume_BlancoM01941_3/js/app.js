@@ -34,7 +34,7 @@ const guardarNombre = () => {
     localStorage.setItem("usuario", nombre);
     respuestaNombre.innerHTML = "";
     nombreUsuario.style.display = "none";
-    seleccionNumeros.style.display = "block";
+    seleccionNumeros.style.display = "flex";
     parrafoUsuario.innerHTML = localStorage.getItem("usuario");
   } else {
     respuestaNombre.innerHTML = `Nombre no válido, vuelve a probar teniendo en cuenta que no puedes introducir valores numéricos.  `;
@@ -48,7 +48,7 @@ const primerNumero = () => {
   if (numero_uno > 0 && numero_uno < 11) {
     respuestaPrimerNumero.innerHTML = `Tu primer número es el ${numero_uno}`;
     respuestaPrimerNumero.style.color = "green";
-    seleccionNumerosSegundo.style.display = "block"
+    seleccionNumerosSegundo.style.display = "flex"
   } else {
     respuestaPrimerNumero.innerHTML = `Has de introducir un número entre 1 y 10.`;
     respuestaPrimerNumero.style.color = "#eb0000";
@@ -65,7 +65,7 @@ const segundoNumero = () => {
     setTimeout(() => {
       seleccionNumeros.style.display = "none";
       seleccionNumerosSegundo.style.display = "none"
-      juego.style.display = "block";
+      juego.style.display = "flex";
       respuestaPrimerNumero.innerHTML = "";
       respuestaSegundoNumero.innerHTML = "";
       crearParrilla();
@@ -87,7 +87,7 @@ const crearParrilla = () => {
     const casilla = document.createElement("button");
     let valorCasilla = document.createTextNode(i);
     casilla.appendChild(valorCasilla);
-    //casilla.setAttribute("id", i);
+    casilla.setAttribute("id", i);
     casilla.setAttribute("onclick", `tomarValor(${i})`);
     tablero.appendChild(casilla);
   }
@@ -102,26 +102,37 @@ const crearNumero = () => {
 const tomarValor = (valor) => {
   contador--;
 
-  if (contador > 0 && completado == false) {
-    if (valor < aleatorio) {
+  if (contador >= 0 && completado == false) {
+    if (valor < aleatorio && contador > 0) {
       respuestaJuego.innerHTML = `El número ${valor} es menor que el pensado. Te quedan ${contador} intentos.`;
       respuestaJuego.style.color = "#eb0000";
-    } else if (valor > aleatorio) {
+      document.getElementById(`${valor}`).style.backgroundColor = "#eb0000";
+      document.getElementById(`${valor}`).style.color = "white";
+
+    } else if (valor > aleatorio && contador > 0) {
       respuestaJuego.innerHTML = `El número ${valor} es mayor que el pensado. Te quedan ${contador} intentos.`;
       respuestaJuego.style.color = "#eb0000";
-    } else {
+      document.getElementById(`${valor}`).style.backgroundColor = "#eb0000";
+      document.getElementById(`${valor}`).style.color = "white";
+
+    } else if (valor != aleatorio && contador == 0) {
+      completado = true;
+      respuestaJuego.innerHTML = `¡FALLASTE! Se te han acabado todos los intentos`;
+      respuestaJuego.style.color = "#eb0000";
+      document.getElementById(`${valor}`).style.backgroundColor = "#eb0000";
+      document.getElementById(`${valor}`).style.color = "white";
+
+    } else  {
       completado = true;
       respuestaJuego.innerHTML = `¡ACERTASTE! El número pensado es el ${valor}`;
       respuestaJuego.style.color = "green";
+      document.getElementById(`${valor}`).style.backgroundColor = "green";
+      document.getElementById(`${valor}`).style.color = "white";
     }
-  } else if (completado == false && contador == 0) {
-    completado = true;
-    respuestaJuego.innerHTML = `¡FALLASTE! Se te han acabado todos los intentos`;
-    respuestaJuego.style.color = "#eb0000";
   }
 
   if (completado == true) {
-    finalizado.style.display = "block";
+    finalizado.style.display = "flex";
   }
 };
 
@@ -137,7 +148,7 @@ const volver = () => {
 
   localStorage.setItem("recarga", "on");
 
-  seleccionNumeros.style.display = "block";
+  seleccionNumeros.style.display = "flex";
   juego.style.display = "none";
   finalizado.style.display = "none";
 };
