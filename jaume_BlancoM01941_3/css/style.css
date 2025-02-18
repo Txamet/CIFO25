@@ -3,10 +3,6 @@
   font-size: 16px;
 }
 
-::selection {
-  background-color: none;
-}
-
 *,
 *::before,
 *::after {
@@ -16,7 +12,8 @@
 }
 
 *:focus {
-  outline: 2px solid dodgerblue;
+  outline: 3px solid dodgerblue;
+  outline-offset: 2px;
 }
 
 html,
@@ -29,28 +26,54 @@ body {
 body {
   width: 50%;
   position: relative;
-  /* text-align: center; */
   left: 25%;
 }
 
 header {
-  margin: 2rem 2rem;
-  text-align: center;
+  margin: 2rem; 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid black;
 }
 
-label,
-p,
-input button,
-div,
-br {
-  margin-bottom: 1.5rem;
+main {
+  margin: 2rem;
 }
+
+button {
+  cursor: pointer; 
+}
+
+#seleccion_numeros,
+#segunda_seleccion,
+#juego,
+#finalizado {
+  display: none;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+#usuario {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+#primera_seleccion {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;  
+}
+
 
 #usuario button,
 #primera_seleccion button,
 #segunda_seleccion button,
 .blue_button {
-  width: 10%;
+  width: 10rem;
   padding: 0.5rem;
   background-color: dodgerblue;
   color: white;
@@ -81,10 +104,18 @@ input {
 }
 
 #tablero button {
-  width: 15%;
-  font-size: 1.5rem;
+  width: 5rem;
+  height: 3rem;
+  margin: 0.2rem;
+  font-size: 1rem;
   background-color: aquamarine;
 }
+
+#tablero button:visited {
+  background-color: red;
+  color: white;
+}
+
 
 #feedback_juego {
   text-align: center;
@@ -95,16 +126,101 @@ input {
   text-align: center;
 }
 
+#botones_finalizado {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-bottom: 3rem;
+}
+
 .blue_button {
-  width: 15%;
+  width: 8rem;
   margin-right: 1rem;
 }
 
 .red_button {
   background-color: red;
   color: white;
-  width: 10%;
+  width: 8rem;
   padding: 0.5rem;
   border-radius: 10px;
   border: 2px solid black;
+}
+
+.plus_button {
+  background-image: url("../icons/add_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+.minus_button {
+  background-image: url("../icons/subtraction_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+
+.contrast_button {
+  background-image: url("../icons/opacity_24x24.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: transparent;
+  width: 4rem;
+  height: 3rem;
+}
+
+.alter_body {
+  background-color: black;
+  color: white;
+}
+
+.alter_header {
+  border-bottom: 5px solid white;
+}
+
+.alter_contrast_button, .alter_minus_button, .alter_plus_button {
+  filter: invert();
+}
+
+#feedback_nombre,
+#feedback_primer_numero,
+#feedback_segundo_numero,
+#feedback_juego {
+  font-weight: bold;
+  color: #eb0000;
+}
+
+.boton_visitado {
+  background-color: #eb0000;
+  color: white;
+}
+
+@media screen and (max-width: 1270px) {
+  body {
+    width: 80%;
+    position: relative;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  header {
+    gap: 1rem;
+    flex-direction: column-reverse;
+  }
+  body {
+    width: 80%;
+    position: relative;
+    left: 10%;
+  }
+  input {
+    width: 100%;
+  }
 }
