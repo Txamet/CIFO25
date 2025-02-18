@@ -188,6 +188,7 @@ const bajarLetra = () => {
 
 const cambiarContraste = () => {
   document.querySelector("body").classList.toggle("alter_body");
+  document.querySelector("header").classList.toggle("alter_header");
   document.querySelector(".contrast_button").classList.toggle("alter_contrast_button");
   document.querySelector(".minus_button").classList.toggle("alter_minus_button");
   document.querySelector(".plus_button").classList.toggle("alter_plus_button");

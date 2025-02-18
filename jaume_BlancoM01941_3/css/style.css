@@ -39,6 +39,10 @@ header {
   border-bottom: 3px solid black;
 }
 
+.alter_header {
+  border-bottom: 3px solid white;
+}
+
 main {
   margin: 2rem;
 }
