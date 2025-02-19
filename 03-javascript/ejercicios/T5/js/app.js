@@ -3,7 +3,8 @@ const city = document.querySelector("#city");
 const button = document.querySelector("#btn");
 const result = document.querySelector("#result");
 const errorAnswer = document.querySelector("#error");
-const API_key = "86013a88e10842d94145ac5dfff2179b";
+
+const API_key = "";
 
 const mostrarHTML = (data) => {
   let temperatura = data.main.temp - 273;
