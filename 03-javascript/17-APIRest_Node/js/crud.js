@@ -5,15 +5,23 @@ const fragmento = d.createDocumentFragment();
 const formTemplate = d.querySelector("#form-template").content;
 const template = d.querySelector("#crud-template").content;
 //const tabla = d.querySelector(".crud-table tbody");
-const tabla = formTemplate.querySelector(".crud-table tbody");
+//const tabla = formTemplate.querySelector(".crud-table tbody");
 
 const muestraEmpleados = (data) => {
-  tabla.innerHTML = "";
+  mostra.innerHTML = "";
+
+  let cloneCabecera = d.importNode(formTemplate, true);
+  cloneCabecera.querySelector(".crud-table tbody")
+  fragmento.appendChild(cloneCabecera)
+  mostra.appendChild(fragmento);
+
+  const tabla = d.querySelector(".crud-table tbody");
+  console.log(tabla)
   data.forEach((empleado) => {
     let clone = d.importNode(template, true);
 
     clone.querySelector(".id").textContent = empleado.id;
-    clone.querySelector(".name").textContent = empleado.name;
+    clone.querySelector(".name").textContent = empleado.nombre;
     clone.querySelector(".empresa").textContent = empleado.empresa;
     clone.querySelector(".puesto").textContent = empleado.puesto;
     clone.querySelector(".edit");
@@ -23,7 +31,24 @@ const muestraEmpleados = (data) => {
   });
 
   tabla.appendChild(fragmento);
-  mostra.appendChild(formTemplate);
+
+
+  /*   tabla.innerHTML = "";
+  data.forEach((empleado) => {
+    let clone = d.importNode(template, true);
+
+    clone.querySelector(".id").textContent = empleado.id;
+    clone.querySelector(".name").textContent = empleado.nombre;
+    clone.querySelector(".empresa").textContent = empleado.empresa;
+    clone.querySelector(".puesto").textContent = empleado.puesto;
+    clone.querySelector(".edit");
+    clone.querySelector(".delete");
+
+    fragmento.appendChild(clone);
+  });
+
+  tabla.appendChild(fragmento);
+  mostra.appendChild(formTemplate); */
 };
 
 const obtListaEmpleados = () => {
