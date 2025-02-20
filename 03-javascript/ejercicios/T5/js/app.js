@@ -11,7 +11,7 @@ const mostrarHTML = (data) => {
   let temperaturaMin = data.main.temp_min - 273;
 
   result.innerHTML = "";
-  result.classList.remove("text-bg-warning", "w-100", "p-5");
+  result.classList.remove("bg-warning", "w-100", "p-5");
   errorAnswer.innerHTML = "";
   errorAnswer.classList.remove("p-5");
 
@@ -43,7 +43,7 @@ const mostrarHTML = (data) => {
   );
   cuartoP.appendChild(valorCuartoP);
   result.appendChild(cuartoP);
-  result.classList.add("text-bg-warning", "w-100", "p-5");
+  result.classList.add("bg-warning", "w-100", "p-5");
 };
 
 const obtenerDatos = (city, country, key) => {
@@ -59,7 +59,7 @@ const obtenerDatos = (city, country, key) => {
     })
     .catch((error) => {
       console.log(error);
-      result.classList.remove("text-bg-warning", "w-100", "p-5");
+      result.classList.remove("bg-warning", "w-100", "p-5");
       result.innerHTML = "Introduce país y ciudad para ver el tiempo de hoy";
       errorAnswer.innerHTML = `<strong>¡Error!</strong> Esta ciudad no existe en este país.`;
       errorAnswer.classList.add("p-5");
@@ -72,11 +72,13 @@ const ejecutarApp = () => {
 
   if (!ciudad || !pais) {
     result.innerHTML = "";
-    result.classList.remove("text-bg-warning", "w-100", "p-5");
+    result.classList.remove("bg-warning", "w-100", "p-5");
     errorAnswer.innerHTML =
       "<strong>¡Error!</strong> Ambos campos son obligatorios.";
     errorAnswer.classList.add("p-5");
     setTimeout(() => {
+      country.value = "";
+      city.value = "";
       location.reload();
     }, 5000);
   } else {
