@@ -1,0 +1,135 @@
+<!-- ################# -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de adivinar un número random</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <main class="w3-panel w3-border-left w3-border-bottom w3-border-right">
+      <header
+        role="banner"
+        tabindex="0"
+        class="w3-panel w3-bottombar w3-topbar w3-border-teal w3-black"
+      >
+        <h1 tabindex="0">
+          Juego a&lt;div>iNa!
+          <span class="font-controls">
+            <div tabindex="0" class="fa fa-adjust" id="contrast"></div>
+            <div tabindex="0" class="font-control" id="font-up">
+              A<sup>+</sup>
+            </div>
+            <div tabindex="0" class="font-control" id="font-down">
+              A<sup>-</sup>
+            </div>
+            <div
+              tabindex="0"
+              class="fa fa-universal-access"
+              id="total-control"
+            ></div>
+          </span>
+        </h1>
+      </header>
+      <div id="paso1" class="" role="application" tabindex="0">
+        <label tabindex="0"
+          >Antes de empezar, por favor, dinos tu nombre:</label
+        >
+        <input type="text" class="w3-input" name="nombre" id="nombre" />
+        <button
+          type="button"
+          id="continuar1"
+          class="w3-button w3-teal w3-section"
+        >
+          Continuar</button
+        ><small
+          class="w3-margin-left error"
+          id="error1"
+          name="error1"
+          tabindex="0"
+        ></small>
+      </div>
+      <div
+        id="paso2"
+        class="w3-container oculto"
+        role="application"
+        tabindex="0"
+      >
+        <p id="enunciado" tabindex="0"></p>
+        <div id="num1" class="w3-container w3-section">
+          <label for="numMin" tabindex="0"
+            >Escribe un número entre el 1 y el 10:</label
+          ><input
+            type="text"
+            name="numMin"
+            id="numMin"
+            class="w3-input num"
+          /><button
+            type="button"
+            id="continuar2"
+            class="w3-button w3-teal w3-section"
+          >
+            Continuar</button
+          ><small
+            class="w3-margin-left error"
+            id="error2"
+            name="error2"
+            tabindex="0"
+          ></small>
+        </div>
+        <div id="num2" class="w3-container w3-section oculto">
+          <label for="numMax" tabindex="0"
+            >Escribe un número entre el 30 y el 40:</label
+          >
+          <input type="text" class="w3-input num" name="numMax" id="numMax" />
+          <button
+            type="button"
+            class="w3-button w3-teal w3-section"
+            id="continuar3"
+          >
+            Continuar
+          </button>
+          <small
+            class="w3-margin-left error"
+            id="error3"
+            name="error3"
+            tabindex=""
+          ></small>
+        </div>
+      </div>
+
+      <div id="juegoBtns"></div>
+      <section
+        class="w3-section sec-centrada error"
+        id="error4"
+        name="error4"
+        tabindex="0"
+      ></section>
+
+      <div
+        id="deNuevo"
+        class="oculto sec-centrada"
+        role="application"
+        tabindex="0"
+      >
+        <p tabindex="0">¿Te gustaría volver a jugar?</p>
+        <button class="w3-button w3-teal w3-section" id="reset">
+          Reinicia
+        </button>
+        <button class="w3-button w3-red w3-section" id="no">Salir</button>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <script src="js/accessibility.js"></script>
+    <script src="js/dades.js"></script>
+    <script src="js/app.js"></script>
+  </footer>
+</html>

@@ -1,0 +1,103 @@
+/* :root {
+  --font-size: 16px;
+} */
+*,
+*::before,
+*::after,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: calc(var(--font-size) * 0.07rem); /*per defecte 16 px*/
+  width: 75vw;
+  margin: auto;
+}
+
+.font-controls {
+  display: flex;
+  font-size: 1rem;
+}
+
+.font-control {
+  margin-left: 0.2rem;
+  padding: 0 0.2rem;
+  color: #f7f3f3;
+  border-radius: 5px;
+  border: 2px solid #fcf8f8;
+  cursor: pointer;
+}
+
+small {
+  display: list-item;
+  list-style: none;
+  font-size: calc(var(--font-size) * 0.1rem); /*per defecte 16 px*/
+}
+
+header {
+  text-align: center;
+}
+
+.oculto {
+  display: none;
+}
+
+.w3-input {
+  width: 30vw;
+}
+
+.num {
+  width: 10vw;
+}
+
+.minmar {
+  margin: 1px;
+}
+
+.centro {
+  text-align: center;
+  font-weight: 200;
+}
+
+.sec-centrada {
+  text-align: center;
+}
+h1 {
+  float: left;
+  width: 100%;
+}
+
+span {
+  float: right;
+  text-align: right;
+  /*         vertical-align: bottom; */
+  margin: 1rem 0 0 1rem;
+  /*  font-size: 1.5rem; */
+}
+.fa {
+  font-size: 1.6rem;
+}
+span div {
+  padding: 0.2rem 0.2rem;
+  border-radius: 3px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+span div:hover {
+  background-color: aliceblue;
+  color: rgb(47, 46, 46);
+}
+
+.contraste {
+  background-color: black;
+  color: aliceblue;
+}
+.erroralt {
+  color: yellow;
+}
+.peque {
+  color: yellow;
+  font-size: 1.1rem;
+}
